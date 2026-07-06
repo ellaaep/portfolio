@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="cs" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kontaktní formulář pro portfolio.">
+    <title>Kontakt | Eliška Turková</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css?v=20260706-even-icons">
+    <script src="assets/app.js?v=20260706-theme-toggle" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-shell">
+        <a class="brand" href="index.html" aria-label="Domů">
+          <img class="brand-memoji" src="assets/memoji-about.png" alt="Eliška Turková">
+        </a>
+        <div class="nav-shell">
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+            <span></span>
+            <span></span>
+          </button>
+          <nav class="site-nav" id="site-nav" aria-label="Hlavní navigace">
+            <a href="weby.html">Weby</a>
+            <a href="work.html">Práce</a>
+            <a href="pricing.html">Ceník</a>
+            <a href="about.html">O mně</a>
+            <a href="contact.html" aria-current="page">Kontakt</a>
+            <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
+          </nav>
+        </div>
+        <div class="header-actions">
+          <button class="theme-toggle" type="button" aria-label="Přepnout barevný režim">
+            <span class="theme-icon sun-icon" aria-hidden="true"></span>
+            <span class="theme-icon moon-icon" aria-hidden="true"></span>
+            <span class="theme-thumb" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-cover contact-cover">
+        <h1>Napiš mi, co potřebuješ vytvořit.</h1>
+        <p class="lead">Web, video, grafika nebo úprava existujícího projektu. Stačí krátce popsat, co má vzniknout.</p>
+      </section>
+
+      <section class="contact-layout">
+        <form class="contact-form mail-window" id="contact-form">
+          <div class="mail-toolbar">
+            <div class="window-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span class="mail-title">New Message</span>
+            <button class="send-mail-btn" type="submit" aria-label="Odeslat zprávu">↑</button>
+          </div>
+          <label>
+            <span>Jméno</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>
+            <span>E-mail</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>
+            <span>Zpráva</span>
+            <textarea name="message" rows="7" required></textarea>
+          </label>
+          <button class="button" type="submit">Odeslat zprávu</button>
+        </form>
+        <aside class="contact-links">
+          <h2>Kde mě najdeš</h2>
+          <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+          <p>Formulář teď otevře připravený e-mail. Později se dá napojit na službu pro odesílání zpráv.</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Eliška Turková</span>
+      <span>web design / video / design</span>
+    </footer>
+  </body>
+</html>

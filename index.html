@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="cs" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio Elišky Turkové: webový vývoj, video editace a vizuální obsah pro sociální sítě.">
+    <title>Portfolio | Eliška Turková</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css?v=20260706-even-icons">
+    <script src="assets/app.js?v=20260706-theme-toggle" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-shell">
+        <a class="brand" href="index.html" aria-label="Domů">
+          <img class="brand-memoji" src="assets/memoji-about.png" alt="Eliška Turková">
+        </a>
+        <div class="nav-shell">
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+            <span></span>
+            <span></span>
+          </button>
+          <nav class="site-nav" id="site-nav" aria-label="Hlavní navigace">
+            <a href="weby.html">Weby</a>
+            <a href="work.html">Práce</a>
+            <a href="pricing.html">Ceník</a>
+            <a href="about.html">O mně</a>
+            <a href="contact.html">Kontakt</a>
+            <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
+          </nav>
+        </div>
+        <div class="header-actions">
+          <button class="theme-toggle" type="button" aria-label="Přepnout barevný režim">
+            <span class="theme-icon sun-icon" aria-hidden="true"></span>
+            <span class="theme-icon moon-icon" aria-hidden="true"></span>
+            <span class="theme-thumb" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="cover home-cover">
+        <div class="hero-preview" aria-label="Portfolio hero náhled">
+          <img class="hero-image hero-image-light" src="assets/hero-light.webp" width="1448" height="1086" alt="Světlá verze úvodního portfolia">
+          <img class="hero-image hero-image-dark" src="assets/hero-dark.webp" width="1448" height="1086" alt="Tmavá verze úvodního portfolia">
+        </div>
+        <div class="cover-footer">
+          <p>Tvořím weby, stříhám videa a navrhuji vizuální obsah, který propojuje funkční zpracování, jasnou myšlenku a výrazný styl.</p>
+          <a class="text-link" href="weby.html">Prohlédnout webové projekty</a>
+        </div>
+      </section>
+
+      <section class="section intro-grid home-intro">
+        <div>
+          <h2>Web, video a design v jednom rukopisu.</h2>
+        </div>
+        <p class="section-note">Propojuji technickou stránku webu s citem pro vizuál a komunikaci. Každý projekt stavím tak, aby byl přehledný, funkční a odpovídal tomu, komu je určen.</p>
+      </section>
+
+      <section class="showcase-grid" aria-label="Vybraná práce">
+        <article class="featured-web">
+          <a class="featured-web-screen" href="weby.html" aria-label="Prohlédnout webové projekty">
+            <span class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="featured-web-viewport">
+              <img src="assets/preview-web-kvetinarstvi.jpg" alt="Celý náhled webového projektu Květinářství">
+            </span>
+          </a>
+          <div class="featured-web-note">
+            <h3>Květinářství</h3>
+            <p>Prezentační web s náhledem celé úvodní stránky.</p>
+          </div>
+          <a class="featured-web-button click-arrow-link" href="weby.html" aria-label="Zobrazit další weby">
+            <span>*click me*</span>
+          </a>
+        </article>
+        <a class="video-showcase-card" href="work.html#video" aria-label="Otevřít video ukázky">
+          <img src="assets/preview-video-reel.svg" alt="Náhled vertikálního videa">
+        </a>
+        <a class="video-showcase-card" href="work.html#video" aria-label="Otevřít video ukázky">
+          <img src="assets/preview-video-cut.svg" alt="Náhled video střihu">
+        </a>
+        <a class="video-showcase-card" href="work.html#video" aria-label="Otevřít video ukázky">
+          <img src="assets/preview-video-reel.svg" alt="Náhled krátkého videa">
+        </a>
+      </section>
+
+      <section class="section about-slice">
+        <div class="ios-profile-card">
+          <div class="memoji-photo-card">
+            <img src="assets/memoji-about.png" alt="Memoji portrét Elišky">
+          </div>
+          <div>
+            <h3>Eliška Turková</h3>
+            <ul class="profile-lines" aria-label="Zaměření">
+              <li>web development</li>
+              <li>video editing</li>
+              <li>visual design</li>
+            </ul>
+          </div>
+        </div>
+        <div class="about-copy">
+          <h2>Jsem Eliška.</h2>
+          <p>Jsem web developerka, video editorka a grafická designérka. Studium jsem zaměřila na webové aplikace a podnikání a nejvíc mě baví projekty, ve kterých můžu propojit funkční kód, silný vizuál a jasnou komunikaci.</p>
+          <a class="text-link" href="about.html">Více o mně</a>
+        </div>
+      </section>
+
+      <section class="section skills-preview-section">
+        <div class="section-heading centered-heading">
+          <div>
+            <h2>Technologie a nástroje, ve kterých tvořím.</h2>
+          </div>
+          <a class="text-link" href="about.html#skills">Všechny dovednosti</a>
+        </div>
+        <div class="ios-folders-preview">
+          <article class="ios-skill-folder">
+            <h3>Web & Development</h3>
+            <div class="apps-grid compact">
+              <div class="app"><span class="app-icon html"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-html"></use></svg></span><p>HTML</p></div>
+              <div class="app"><span class="app-icon css"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-css"></use></svg></span><p>CSS</p></div>
+              <div class="app"><span class="app-icon js"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-js"></use></svg></span><p>JavaScript</p></div>
+              <div class="app"><span class="app-icon ts"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-ts"></use></svg></span><p>TypeScript</p></div>
+              <div class="app"><span class="app-icon php"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-php"></use></svg></span><p>PHP</p></div>
+              <div class="app"><span class="app-icon python"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-python"></use></svg></span><p>Python</p></div>
+              <div class="app"><span class="app-icon sql"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-sql"></use></svg></span><p>SQL</p></div>
+              <div class="app"><span class="app-icon java"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-java"></use></svg></span><p>Java</p></div>
+              <div class="app"><span class="app-icon csharp"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-csharp"></use></svg></span><p>C#</p></div>
+              <div class="app"><span class="app-icon git"></span><p>Git</p></div>
+              <div class="app"><span class="app-icon github"></span><p>GitHub</p></div>
+            </div>
+          </article>
+          <article class="ios-skill-folder">
+            <h3>Design & Video</h3>
+            <div class="apps-grid compact">
+              <div class="app"><span class="app-icon ae"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-ae"></use></svg></span><p>After Effects</p></div>
+              <div class="app"><span class="app-icon ps"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-ps"></use></svg></span><p>Photoshop</p></div>
+              <div class="app"><span class="app-icon canva"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-canva"></use></svg></span><p>Canva</p></div>
+              <div class="app"><span class="app-icon figma"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-figma"></use></svg></span><p>Figma</p></div>
+              <div class="app"><span class="app-icon pr"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-pr"></use></svg></span><p>Premiere</p></div>
+              <div class="app"><span class="app-icon ai"><svg aria-hidden="true"><use href="assets/skill-logos.svg#logo-ai"></use></svg></span><p>Illustrator</p></div>
+              <div class="app"><span class="app-icon chatgpt"></span><p>ChatGPT</p></div>
+              <div class="app"><span class="app-icon procreate"></span><p>Procreate</p></div>
+              <div class="app"><span class="app-icon capcut"></span><p>CapCut</p></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section pricing-preview">
+        <div class="pricing-preview-heading">
+          <h2>Ceník.</h2>
+          <a class="text-link" href="pricing.html">Celý ceník</a>
+        </div>
+        <div class="pricing-mini-grid">
+          <a class="price-mini" href="pricing.html">
+            <span>Web</span>
+            <strong>od 3 500 Kč</strong>
+          </a>
+          <a class="price-mini" href="pricing.html">
+            <span>Video</span>
+            <strong>od 800 Kč</strong>
+          </a>
+          <a class="price-mini" href="pricing.html">
+            <span>Grafika</span>
+            <strong>od 500 Kč</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="contact-band">
+        <h2>Máš nápad, který chceš proměnit ve funkční a vizuálně silný výstup?</h2>
+        <a class="button button-small" href="contact.html">Probrat projekt</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Eliška Turková</span>
+      <span>web development / video editing / visual design</span>
+    </footer>
+  </body>
+</html>
