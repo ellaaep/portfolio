@@ -2,7 +2,8 @@ const root = document.documentElement;
 const themeButton = document.querySelector(".theme-toggle");
 const navButton = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".site-nav");
-const form = document.querySelector("#contact-form");
+const videoLoadMoreButton = document.querySelector(".video-load-more");
+const moreVideos = document.querySelector("#more-videos");
 
 const setTheme = (theme) => {
   root.dataset.theme = theme;
@@ -31,13 +32,12 @@ nav?.querySelectorAll("a").forEach((link) => {
   });
 });
 
-form?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = new FormData(form);
-  const name = String(data.get("name") || "").trim();
-  const email = String(data.get("email") || "").trim();
-  const message = String(data.get("message") || "").trim();
-  const body = encodeURIComponent(`Jméno: ${name}\nE-mail: ${email}\n\n${message}`);
-  const subject = encodeURIComponent("Zpráva z portfolia");
-  window.location.href = `mailto:your.email@example.com?subject=${subject}&body=${body}`;
+videoLoadMoreButton?.addEventListener("click", () => {
+  if (!moreVideos) return;
+
+  const isExpanded = videoLoadMoreButton.getAttribute("aria-expanded") === "true";
+  const nextExpanded = !isExpanded;
+  moreVideos.hidden = !nextExpanded;
+  videoLoadMoreButton.setAttribute("aria-expanded", String(nextExpanded));
+  videoLoadMoreButton.textContent = nextExpanded ? "Zobrazit méně" : "Otevřít další";
 });
