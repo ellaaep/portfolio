@@ -7,11 +7,11 @@
     <title>Weby | Eliška Turková</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css?v=20260706-even-icons">
-    <script src="assets/app.js?v=20260706-theme-toggle" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css?v=20260707-os-wordmark-clean">
+    <script src="assets/app.js?v=20260707-os-wordmark-clean" defer></script>
   </head>
-  <body>
+  <body class="websites-page">
     <header class="site-header">
       <div class="header-shell">
         <a class="brand" href="index.html" aria-label="Domů">
@@ -24,8 +24,9 @@
           </button>
           <nav class="site-nav" id="site-nav" aria-label="Hlavní navigace">
             <a href="weby.html" aria-current="page">Weby</a>
-            <a href="work.html">Práce</a>
+            <a href="work.html">Edit</a>
             <a href="pricing.html">Ceník</a>
+            <a href="spoluprace.html">Spolupráce</a>
             <a href="about.html">O mně</a>
             <a href="contact.html">Kontakt</a>
             <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
@@ -33,8 +34,6 @@
         </div>
         <div class="header-actions">
           <button class="theme-toggle" type="button" aria-label="Přepnout barevný režim">
-            <span class="theme-icon sun-icon" aria-hidden="true"></span>
-            <span class="theme-icon moon-icon" aria-hidden="true"></span>
             <span class="theme-thumb" aria-hidden="true"></span>
           </button>
         </div>
@@ -49,9 +48,21 @@
 
       <section class="websites-grid" aria-label="Všechny webové stránky">
         <article class="website-card">
-          <div class="website-note">
-            <h2>Květinářství</h2>
-            <p>Prezentační web pro květinářství s jemným vizuálem a přehlednou úvodní stránkou.</p>
+          <div class="website-side-info">
+            <div class="website-note">
+              <h2>Květinářství</h2>
+              <p>Prezentační web pro květinářství s jemným vizuálem a přehlednou úvodní stránkou.</p>
+            </div>
+            <a class="website-open-button click-arrow-link" href="https://ellaaep.github.io/kvetinarstvi/index.html" target="_blank" rel="noreferrer" aria-label="Otevřít web Květinářství">
+              <span class="click-arrow-asset theme-asset" aria-hidden="true">
+                <img class="theme-asset-light" src="assets/handdrawn/light/sipka-02-svetly-rezim.png" alt="">
+                <img class="theme-asset-dark" src="assets/handdrawn/dark/sipka-01-tmavy-rezim.png" alt="">
+              </span>
+              <span class="click-text-asset theme-asset" aria-hidden="true">
+                <img class="theme-asset-light" src="assets/handdrawn/light/text-click-me-svetly-rezim.png" alt="">
+                <img class="theme-asset-dark" src="assets/handdrawn/dark/text-click-me-tmavy-rezim.png" alt="">
+              </span>
+            </a>
           </div>
           <a class="website-screen" href="https://ellaaep.github.io/kvetinarstvi/index.html" target="_blank" rel="noreferrer" aria-label="Otevřít web Květinářství">
             <span class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -59,14 +70,23 @@
               <img src="assets/preview-web-kvetinarstvi.jpg" alt="Náhled hlavní stránky Květinářství" loading="lazy">
             </span>
           </a>
-          <a class="website-open-button click-arrow-link" href="https://ellaaep.github.io/kvetinarstvi/index.html" target="_blank" rel="noreferrer" aria-label="Otevřít web Květinářství">
-            <span>*click me*</span>
-          </a>
         </article>
         <article class="website-card">
-          <div class="website-note">
-            <h2>iOS portfolio</h2>
-            <p>Portfolio inspirované iOS prostředím, složkami, aplikacemi a osobní prezentací.</p>
+          <div class="website-side-info">
+            <div class="website-note">
+              <h2>iOS portfolio</h2>
+              <p>Portfolio inspirované iOS prostředím, složkami, aplikacemi a osobní prezentací.</p>
+            </div>
+            <a class="website-open-button click-arrow-link" href="https://ellaaep.github.io/ios-portfolio/" target="_blank" rel="noreferrer" aria-label="Otevřít iOS portfolio">
+              <span class="click-arrow-asset theme-asset" aria-hidden="true">
+                <img class="theme-asset-light" src="assets/handdrawn/light/sipka-02-svetly-rezim.png" alt="">
+                <img class="theme-asset-dark" src="assets/handdrawn/dark/sipka-01-tmavy-rezim.png" alt="">
+              </span>
+              <span class="click-text-asset theme-asset" aria-hidden="true">
+                <img class="theme-asset-light" src="assets/handdrawn/light/text-click-me-svetly-rezim.png" alt="">
+                <img class="theme-asset-dark" src="assets/handdrawn/dark/text-click-me-tmavy-rezim.png" alt="">
+              </span>
+            </a>
           </div>
           <a class="website-screen" href="https://ellaaep.github.io/ios-portfolio/" target="_blank" rel="noreferrer" aria-label="Otevřít iOS portfolio">
             <span class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -74,14 +94,23 @@
               <img src="assets/preview-web-ios-portfolio.jpg" alt="Náhled hlavní stránky iOS portfolia" loading="lazy">
             </span>
           </a>
-          <a class="website-open-button click-arrow-link" href="https://ellaaep.github.io/ios-portfolio/" target="_blank" rel="noreferrer" aria-label="Otevřít iOS portfolio">
-            <span>*click me*</span>
-          </a>
         </article>
         <article class="website-card">
-          <div class="website-note">
-            <h2>Sportbar 69</h2>
-            <p>Web pro podnik s výraznou vizuální atmosférou a rychlým přístupem k informacím.</p>
+          <div class="website-side-info">
+            <div class="website-note">
+              <h2>Sportbar 69</h2>
+              <p>Web pro podnik s výraznou vizuální atmosférou a rychlým přístupem k informacím.</p>
+            </div>
+            <a class="website-open-button click-arrow-link" href="https://sportbar69.cz/" target="_blank" rel="noreferrer" aria-label="Otevřít web Sportbar 69">
+              <span class="click-arrow-asset theme-asset" aria-hidden="true">
+                <img class="theme-asset-light" src="assets/handdrawn/light/sipka-02-svetly-rezim.png" alt="">
+                <img class="theme-asset-dark" src="assets/handdrawn/dark/sipka-01-tmavy-rezim.png" alt="">
+              </span>
+              <span class="click-text-asset theme-asset" aria-hidden="true">
+                <img class="theme-asset-light" src="assets/handdrawn/light/text-click-me-svetly-rezim.png" alt="">
+                <img class="theme-asset-dark" src="assets/handdrawn/dark/text-click-me-tmavy-rezim.png" alt="">
+              </span>
+            </a>
           </div>
           <a class="website-screen" href="https://sportbar69.cz/" target="_blank" rel="noreferrer" aria-label="Otevřít web Sportbar 69">
             <span class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -89,14 +118,23 @@
               <img src="assets/preview-web-sportbar69.jpg" alt="Náhled hlavní stránky Sportbar 69" loading="lazy">
             </span>
           </a>
-          <a class="website-open-button click-arrow-link" href="https://sportbar69.cz/" target="_blank" rel="noreferrer" aria-label="Otevřít web Sportbar 69">
-            <span>*click me*</span>
-          </a>
         </article>
         <article class="website-card">
-          <div class="website-note">
-            <h2>Nehtové studio</h2>
-            <p>Web pro služby nehtového studia s čistým rozvržením a výraznou úvodní prezentací.</p>
+          <div class="website-side-info">
+            <div class="website-note">
+              <h2>Nehtové studio</h2>
+              <p>Web pro služby nehtového studia s čistým rozvržením a výraznou úvodní prezentací.</p>
+            </div>
+            <a class="website-open-button click-arrow-link" href="https://ellaaep.github.io/nehtove-studio/" target="_blank" rel="noreferrer" aria-label="Otevřít web Nehtové studio">
+              <span class="click-arrow-asset theme-asset" aria-hidden="true">
+                <img class="theme-asset-light" src="assets/handdrawn/light/sipka-02-svetly-rezim.png" alt="">
+                <img class="theme-asset-dark" src="assets/handdrawn/dark/sipka-01-tmavy-rezim.png" alt="">
+              </span>
+              <span class="click-text-asset theme-asset" aria-hidden="true">
+                <img class="theme-asset-light" src="assets/handdrawn/light/text-click-me-svetly-rezim.png" alt="">
+                <img class="theme-asset-dark" src="assets/handdrawn/dark/text-click-me-tmavy-rezim.png" alt="">
+              </span>
+            </a>
           </div>
           <a class="website-screen" href="https://ellaaep.github.io/nehtove-studio/" target="_blank" rel="noreferrer" aria-label="Otevřít web Nehtové studio">
             <span class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -104,10 +142,13 @@
               <img src="assets/preview-web-nehtove-studio.jpg" alt="Náhled hlavní stránky Nehtového studia" loading="lazy">
             </span>
           </a>
-          <a class="website-open-button click-arrow-link" href="https://ellaaep.github.io/nehtove-studio/" target="_blank" rel="noreferrer" aria-label="Otevřít web Nehtové studio">
-            <span>*click me*</span>
-          </a>
         </article>
+      </section>
+
+      <section class="websites-process-cta">
+        <h2>Co následuje po první zprávě?</h2>
+        <p>Podívej se, jak probíhá celý proces od úvodní domluvy přes návrh až po spuštění hotového webu.</p>
+        <a class="button button-small" href="spoluprace.html">Jak probíhá spolupráce</a>
       </section>
     </main>
 
