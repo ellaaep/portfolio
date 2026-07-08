@@ -1,3 +1,8 @@
+const contentStyles = document.createElement("link");
+contentStyles.rel = "stylesheet";
+contentStyles.href = "assets/content-overrides.css?v=20260708-copy-v2";
+document.head.appendChild(contentStyles);
+
 const root = document.documentElement;
 const themeButton = document.querySelector(".theme-toggle");
 const navButton = document.querySelector(".nav-toggle");
@@ -218,17 +223,9 @@ const portfolioVideos = [
   },
 ];
 
-const yearDescriptions = {
-  2026: "",
-  2025: "",
-  2024: "",
-  2023: "",
-  2022: "",
-};
-
 const videoFeaturedContainer = document.querySelector("[data-video-featured]");
 const videoYearsContainer = document.querySelector("[data-video-years]");
-const videoFilterButtons = document.querySelectorAll("[data-video-filter]");
+const videoYearSelect = document.querySelector("[data-video-year-select]");
 const videoModal = document.querySelector("[data-video-modal]");
 const videoModalTitle = document.querySelector("[data-video-modal-title]");
 const videoModalMeta = document.querySelector("[data-video-modal-meta]");
@@ -236,9 +233,7 @@ const videoModalMedia = document.querySelector("[data-video-modal-media]");
 const videoPlayer = document.querySelector("[data-video-player]");
 let lastFocusedVideoTrigger = null;
 
-const videoMetaText = (video) => {
-  return video.year ? String(video.year) : "Vybraná práce";
-};
+const videoMetaText = (video) => video.year ? String(video.year) : "Vybraná práce";
 
 const renderVideoButton = (video, variant = "timeline") => `
   <button class="motion-video-card motion-video-card-${variant}" type="button" data-video-id="${video.id}" data-format="${video.format}" aria-label="Přehrát ${video.title}">
@@ -249,18 +244,9 @@ const renderVideoButton = (video, variant = "timeline") => `
   </button>
 `;
 
-const renderFeaturedCaption = (video) => {
-  if (!video.featuredText && !video.featuredHandle) return "";
-  const client = video.featuredUrl
-    ? `<a href="${video.featuredUrl}" target="_blank" rel="noreferrer">${video.featuredHandle}</a>`
-    : `<span>${video.featuredHandle || ""}</span>`;
-  return `<p class="motion-featured-caption">${video.featuredText || ""} ${client}</p>`;
-};
-
 const renderFeaturedVideo = (video) => `
   <article class="motion-featured-item">
     ${renderVideoButton(video, "featured")}
-    ${renderFeaturedCaption(video)}
   </article>
 `;
 
@@ -268,6 +254,7 @@ const renderFeaturedVideos = () => {
   if (!videoFeaturedContainer) return;
   videoFeaturedContainer.innerHTML = portfolioVideos
     .filter((video) => video.featured)
+    .slice(0, 3)
     .map((video) => renderFeaturedVideo(video))
     .join("");
 };
@@ -276,25 +263,19 @@ const renderVideoYearGroups = (activeYear = "2026") => {
   if (!videoYearsContainer) return;
 
   const edits = portfolioVideos.filter((video) => video.category === "edit");
-  const years = [...new Set(edits.map((video) => video.year))].sort((a, b) => b - a);
-  const visibleYears = activeYear === "all" ? years : years.filter((year) => String(year) === activeYear);
+  const selectedYear = Number(activeYear);
+  const videos = edits.filter((video) => video.year === selectedYear);
 
-  videoYearsContainer.innerHTML = visibleYears
-    .map((year) => {
-      const videos = edits.filter((video) => video.year === year);
-      return `
-        <section class="motion-year-group" aria-labelledby="motion-year-${year}">
-          <div class="motion-year-heading">
-            <h4 id="motion-year-${year}">${year}</h4>
-            <p>${yearDescriptions[year] || ""}</p>
-          </div>
-          <div class="motion-year-grid">
-            ${videos.map((video) => renderVideoButton(video)).join("")}
-          </div>
-        </section>
-      `;
-    })
-    .join("");
+  videoYearsContainer.innerHTML = `
+    <section class="motion-year-group" aria-label="Edity z roku ${selectedYear}">
+      <div class="motion-year-heading">
+        <h4>${selectedYear}</h4>
+      </div>
+      <div class="motion-year-grid">
+        ${videos.map((video) => renderVideoButton(video)).join("")}
+      </div>
+    </section>
+  `;
 };
 
 const openVideoModal = (video) => {
@@ -325,16 +306,10 @@ const closeVideoModal = () => {
 };
 
 renderFeaturedVideos();
-renderVideoYearGroups();
+renderVideoYearGroups(videoYearSelect?.value || "2026");
 
-videoFilterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const activeYear = button.dataset.videoFilter || "all";
-    videoFilterButtons.forEach((filterButton) => {
-      filterButton.setAttribute("aria-pressed", String(filterButton === button));
-    });
-    renderVideoYearGroups(activeYear);
-  });
+videoYearSelect?.addEventListener("change", () => {
+  renderVideoYearGroups(videoYearSelect.value);
 });
 
 document.addEventListener("click", (event) => {
@@ -350,7 +325,5 @@ videoModal?.querySelectorAll("[data-video-close]").forEach((closeTrigger) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeVideoModal();
-  }
+  if (event.key === "Escape") closeVideoModal();
 });
