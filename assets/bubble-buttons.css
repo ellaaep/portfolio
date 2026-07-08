@@ -1,10 +1,11 @@
-/* Gooey bubble buttons inspired by the referenced CodePen, adapted to the portfolio palette. */
+/* Gooey bubble buttons based on the referenced CodePen, adapted to the portfolio palette. */
 
 .bubble-button {
-  --bubble-base: var(--text);
-  --bubble-action: var(--scribble-pink);
-  --bubble-label: var(--bg);
+  --bubble-base: #1d2532;
+  --bubble-action: #ee719e;
+  --bubble-label: #fceae2;
   position: relative;
+  z-index: 0;
   display: inline-grid !important;
   min-height: auto !important;
   place-items: center;
@@ -18,12 +19,13 @@
   isolation: isolate;
   text-decoration: none;
   transform: translateZ(0);
-  transition: transform 140ms ease;
+  transition: transform 120ms ease;
 }
 
 [data-theme="dark"] .bubble-button {
-  --bubble-base: var(--toggle-light);
-  --bubble-label: var(--toggle-dark);
+  --bubble-base: #fceae2;
+  --bubble-action: #9b7cff;
+  --bubble-label: #1d2532;
 }
 
 .bubble-button.text-link::after {
@@ -34,11 +36,11 @@
   position: relative;
   z-index: 3;
   display: inline-flex;
-  min-height: 42px;
+  min-height: 44px;
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 0 18px;
+  padding: 0 20px;
   border-radius: inherit;
   color: inherit;
   font-size: 13px;
@@ -46,13 +48,13 @@
   line-height: 1;
   letter-spacing: 0.01em;
   white-space: nowrap;
-  transition: color 160ms ease;
+  transition: color 120ms ease;
 }
 
 .button-small.bubble-button .bubble-button__label,
 .text-link.bubble-button .bubble-button__label {
-  min-height: 40px;
-  padding-inline: 16px;
+  min-height: 41px;
+  padding-inline: 17px;
 }
 
 .send-mail-btn.bubble-button .bubble-button__label {
@@ -64,49 +66,65 @@
 
 .bubble-button__effect {
   position: absolute;
-  inset: 0;
   z-index: 1;
+  display: block;
+  width: 200%;
+  height: 400%;
+  top: -150%;
+  left: -50%;
   overflow: visible;
-  border-radius: inherit;
   pointer-events: none;
   filter: url("#portfolio-bubble-goo");
+  -webkit-filter: url("#portfolio-bubble-goo");
 }
 
 .bubble-button__core {
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
+  z-index: 1;
+  width: 50%;
+  height: 25%;
+  top: 50%;
+  left: 25%;
+  border-radius: 999px;
   background: var(--bubble-base);
   box-shadow: 0 12px 26px color-mix(in srgb, var(--bubble-base) 24%, transparent);
-  transition:
-    background 160ms ease,
-    box-shadow 160ms ease,
-    transform 260ms cubic-bezier(0.22, 1.3, 0.36, 1);
+  transform: translateY(-50%);
+  transition: background 100ms ease, box-shadow 140ms ease;
 }
 
 .bubble-button__particle {
   position: absolute;
-  width: 17px;
-  height: 17px;
+  z-index: 2;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  background: var(--bubble-action);
-  opacity: 0;
-  transform: translate(0, 0) scale(0.25);
+  background: var(--bubble-base);
+  opacity: 1;
+  transition: background 100ms ease;
   will-change: transform, opacity;
 }
 
-.bubble-button__particle:nth-child(2) { top: 14%; left: 18%; }
-.bubble-button__particle:nth-child(3) { top: 0; left: 38%; width: 13px; height: 13px; }
-.bubble-button__particle:nth-child(4) { top: 28%; left: 4%; width: 11px; height: 11px; }
-.bubble-button__particle:nth-child(5) { right: 17%; bottom: 12%; }
-.bubble-button__particle:nth-child(6) { right: 37%; bottom: -2%; width: 13px; height: 13px; }
-.bubble-button__particle:nth-child(7) { right: 3%; bottom: 28%; width: 11px; height: 11px; }
+.bubble-button__particle.top-left {
+  top: 40%;
+  left: 27%;
+}
+
+.bubble-button__particle.bottom-right {
+  right: 27%;
+  bottom: 40%;
+}
+
+.bubble-button:hover .bubble-button__core,
+.bubble-button:hover .bubble-button__particle,
+.bubble-button:focus-visible .bubble-button__core,
+.bubble-button:focus-visible .bubble-button__particle {
+  background: var(--bubble-action);
+}
 
 .bubble-button:hover .bubble-button__core,
 .bubble-button:focus-visible .bubble-button__core {
-  background: var(--bubble-action);
-  box-shadow: 0 16px 34px color-mix(in srgb, var(--bubble-action) 38%, transparent);
-  transform: scale(1.025, 1.08);
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--bubble-action) 40%, transparent);
+  animation: bubble-core-bounce 720ms 120ms cubic-bezier(0.16, 1.2, 0.3, 1) both;
 }
 
 .bubble-button:hover .bubble-button__label,
@@ -114,43 +132,43 @@
   color: #fff;
 }
 
-.bubble-button:hover .bubble-button__particle:nth-child(2),
-.bubble-button:focus-visible .bubble-button__particle:nth-child(2) {
-  animation: bubble-pop-tl-1 720ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
+.bubble-button:hover .top-left:nth-of-type(2),
+.bubble-button:focus-visible .top-left:nth-of-type(2) {
+  animation: bubble-top-left-one 820ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
 }
 
-.bubble-button:hover .bubble-button__particle:nth-child(3),
-.bubble-button:focus-visible .bubble-button__particle:nth-child(3) {
-  animation: bubble-pop-tl-2 840ms 30ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
+.bubble-button:hover .top-left:nth-of-type(3),
+.bubble-button:focus-visible .top-left:nth-of-type(3) {
+  animation: bubble-top-left-two 900ms 30ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
 }
 
-.bubble-button:hover .bubble-button__particle:nth-child(4),
-.bubble-button:focus-visible .bubble-button__particle:nth-child(4) {
-  animation: bubble-pop-tl-3 760ms 60ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
+.bubble-button:hover .top-left:nth-of-type(4),
+.bubble-button:focus-visible .top-left:nth-of-type(4) {
+  animation: bubble-top-left-three 860ms 55ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
 }
 
-.bubble-button:hover .bubble-button__particle:nth-child(5),
-.bubble-button:focus-visible .bubble-button__particle:nth-child(5) {
-  animation: bubble-pop-br-1 760ms 70ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
+.bubble-button:hover .bottom-right:nth-of-type(5),
+.bubble-button:focus-visible .bottom-right:nth-of-type(5) {
+  animation: bubble-bottom-right-one 840ms 70ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
 }
 
-.bubble-button:hover .bubble-button__particle:nth-child(6),
-.bubble-button:focus-visible .bubble-button__particle:nth-child(6) {
-  animation: bubble-pop-br-2 880ms 20ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
+.bubble-button:hover .bottom-right:nth-of-type(6),
+.bubble-button:focus-visible .bottom-right:nth-of-type(6) {
+  animation: bubble-bottom-right-two 920ms 25ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
 }
 
-.bubble-button:hover .bubble-button__particle:nth-child(7),
-.bubble-button:focus-visible .bubble-button__particle:nth-child(7) {
-  animation: bubble-pop-br-3 740ms 90ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
+.bubble-button:hover .bottom-right:nth-of-type(7),
+.bubble-button:focus-visible .bottom-right:nth-of-type(7) {
+  animation: bubble-bottom-right-three 860ms 90ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
 }
 
 .bubble-button:active {
-  transform: scale(0.96);
+  transform: scale(0.95);
 }
 
 .bubble-button:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--scribble-pink) 48%, transparent);
-  outline-offset: 5px;
+  outline: 3px solid color-mix(in srgb, var(--bubble-action) 48%, transparent);
+  outline-offset: 6px;
 }
 
 .bubble-goo-defs {
@@ -161,40 +179,53 @@
   pointer-events: none;
 }
 
-@keyframes bubble-pop-tl-1 {
-  0% { opacity: 0; transform: translate(4px, 5px) scale(0.2); }
-  18% { opacity: 1; }
-  100% { opacity: 0; transform: translate(-28px, -26px) scale(0); }
+@keyframes bubble-core-bounce {
+  0% { transform: translateY(-50%) scale(1); }
+  35% { transform: translateY(-50%) scale(1.04, 1.16); }
+  68% { transform: translateY(-50%) scale(0.99, 0.96); }
+  100% { transform: translateY(-50%) scale(1); }
 }
 
-@keyframes bubble-pop-tl-2 {
-  0% { opacity: 0; transform: translate(2px, 6px) scale(0.2); }
-  20% { opacity: 1; }
-  100% { opacity: 0; transform: translate(-10px, -34px) scale(0); }
+@keyframes bubble-top-left-one {
+  0% { opacity: 1; transform: translate(0, 0) rotate(-45deg) scale(1); }
+  42% { opacity: 1; transform: translate(-25px, -25px) rotate(-45deg) scale(0.2, 2); }
+  52% { opacity: 1; transform: translate(-19px, -27px) rotate(-45deg) scale(0.2); }
+  100% { opacity: 0; transform: translate(-24px, -42px) rotate(-45deg) scale(0); }
 }
 
-@keyframes bubble-pop-tl-3 {
-  0% { opacity: 0; transform: translate(7px, 2px) scale(0.2); }
-  18% { opacity: 1; }
-  100% { opacity: 0; transform: translate(-34px, -10px) scale(0); }
+@keyframes bubble-top-left-two {
+  0% { opacity: 1; transform: translate(0, 0) rotate(-45deg) scale(1); }
+  42% { opacity: 1; transform: translate(-25px, -25px) rotate(-45deg) scale(1, 2); }
+  52% { opacity: 1; transform: translate(-35px, -32px) rotate(-45deg) scale(1, 0.8); }
+  100% { opacity: 0; transform: translate(-45px, -42px) rotate(-45deg) scale(0.4); }
 }
 
-@keyframes bubble-pop-br-1 {
-  0% { opacity: 0; transform: translate(-3px, -5px) scale(0.2); }
-  18% { opacity: 1; }
-  100% { opacity: 0; transform: translate(28px, 26px) scale(0); }
+@keyframes bubble-top-left-three {
+  0% { opacity: 1; transform: translate(0, 0) rotate(-45deg) scale(1); }
+  42% { opacity: 1; transform: translate(-25px, -25px) rotate(-45deg) scale(0.2, 2); }
+  52% { opacity: 1; transform: translate(-40px, -19px) rotate(-45deg) scale(0.2); }
+  100% { opacity: 0; transform: translate(-55px, -14px) rotate(-45deg) scale(0); }
 }
 
-@keyframes bubble-pop-br-2 {
-  0% { opacity: 0; transform: translate(-2px, -5px) scale(0.2); }
-  20% { opacity: 1; }
-  100% { opacity: 0; transform: translate(10px, 34px) scale(0); }
+@keyframes bubble-bottom-right-one {
+  0% { opacity: 1; transform: translate(0, 0) rotate(45deg) scale(1); }
+  42% { opacity: 1; transform: translate(30px, 30px) rotate(45deg) scale(0.2, 2); }
+  52% { opacity: 1; transform: translate(24px, 33px) rotate(45deg) scale(0.2); }
+  100% { opacity: 0; transform: translate(29px, 48px) rotate(45deg) scale(0); }
 }
 
-@keyframes bubble-pop-br-3 {
-  0% { opacity: 0; transform: translate(-6px, -2px) scale(0.2); }
-  18% { opacity: 1; }
-  100% { opacity: 0; transform: translate(34px, 10px) scale(0); }
+@keyframes bubble-bottom-right-two {
+  0% { opacity: 1; transform: translate(0, 0) rotate(45deg) scale(1); }
+  42% { opacity: 1; transform: translate(30px, 30px) rotate(45deg) scale(1, 2); }
+  52% { opacity: 1; transform: translate(37px, 33px) rotate(45deg) scale(0.8); }
+  100% { opacity: 0; transform: translate(44px, 40px) rotate(45deg) scale(0.4); }
+}
+
+@keyframes bubble-bottom-right-three {
+  0% { opacity: 1; transform: translate(0, 0) rotate(45deg) scale(1); }
+  42% { opacity: 1; transform: translate(30px, 30px) rotate(45deg) scale(0.2, 2); }
+  52% { opacity: 1; transform: translate(45px, 24px) rotate(45deg) scale(0.2); }
+  100% { opacity: 0; transform: translate(60px, 19px) rotate(45deg) scale(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
