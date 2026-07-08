@@ -5,7 +5,7 @@ document.head.appendChild(contentStyles);
 
 const responsiveStyles = document.createElement("link");
 responsiveStyles.rel = "stylesheet";
-responsiveStyles.href = "assets/responsive-fixes.css?v=20260708-responsive-v1";
+responsiveStyles.href = "assets/responsive-fixes.css?v=20260708-responsive-v2";
 document.head.appendChild(responsiveStyles);
 
 const bubbleStyles = document.createElement("link");
@@ -46,166 +46,22 @@ nav?.querySelectorAll("a").forEach((link) => {
 });
 
 const portfolioVideos = [
-  {
-    id: "akcni-reel",
-    title: "Akční reel",
-    category: "reel",
-    year: null,
-    src: "assets/media/videos/reels/akcni-reel.mp4",
-    poster: "assets/media/posters/akcni-reel.webp",
-    format: "portrait",
-    featured: true,
-  },
-  {
-    id: "filler-reel",
-    title: "Filler reel",
-    category: "reel",
-    year: null,
-    src: "assets/media/videos/reels/filler-reel.mp4",
-    poster: "assets/media/posters/filler-reel.webp",
-    format: "portrait",
-    featured: false,
-  },
-  {
-    id: "outro-2026",
-    title: "Outro 2026",
-    category: "graphic",
-    year: 2026,
-    src: "assets/media/videos/graphics/outro-2026.mp4",
-    poster: "assets/media/posters/outro-2026.webp",
-    format: "portrait",
-    featured: true,
-  },
-  {
-    id: "edit-2026-01",
-    title: "Edit 01",
-    category: "edit",
-    year: 2026,
-    src: "assets/media/videos/edits/2026/edit-2026-01.mp4",
-    poster: "assets/media/posters/edit-2026-01.webp",
-    format: "landscape",
-    featured: false,
-  },
-  {
-    id: "edit-2026-02",
-    title: "Edit 02",
-    category: "edit",
-    year: 2026,
-    src: "assets/media/videos/edits/2026/edit-2026-02.mp4",
-    poster: "assets/media/posters/edit-2026-02.webp",
-    format: "square",
-    featured: true,
-  },
-  {
-    id: "edit-2025-01",
-    title: "Edit 01",
-    category: "edit",
-    year: 2025,
-    src: "assets/media/videos/edits/2025/edit-2025-01.mp4",
-    poster: "assets/media/posters/edit-2025-01.webp",
-    format: "square",
-    featured: false,
-  },
-  {
-    id: "edit-2025-02",
-    title: "Edit 02",
-    category: "edit",
-    year: 2025,
-    src: "assets/media/videos/edits/2025/edit-2025-02.mp4",
-    poster: "assets/media/posters/edit-2025-02.webp",
-    format: "portrait",
-    featured: false,
-  },
-  {
-    id: "edit-2025-03",
-    title: "Edit 03",
-    category: "edit",
-    year: 2025,
-    src: "assets/media/videos/edits/2025/edit-2025-03.mp4",
-    poster: "assets/media/posters/edit-2025-03.webp",
-    format: "square",
-    featured: false,
-  },
-  {
-    id: "edit-2024-01",
-    title: "Edit 01",
-    category: "edit",
-    year: 2024,
-    src: "assets/media/videos/edits/2024/edit-2024-01.mp4",
-    poster: "assets/media/posters/edit-2024-01.webp",
-    format: "portrait",
-    featured: false,
-  },
-  {
-    id: "edit-2024-02",
-    title: "Edit 02",
-    category: "edit",
-    year: 2024,
-    src: "assets/media/videos/edits/2024/edit-2024-02.mp4",
-    poster: "assets/media/posters/edit-2024-02.webp",
-    format: "square",
-    featured: false,
-  },
-  {
-    id: "edit-2023-01",
-    title: "Edit 01",
-    category: "edit",
-    year: 2023,
-    src: "assets/media/videos/edits/2023/edit-2023-01.mp4",
-    poster: "assets/media/posters/edit-2023-01.webp",
-    format: "portrait",
-    featured: false,
-  },
-  {
-    id: "edit-2023-03",
-    title: "Edit 03",
-    category: "edit",
-    year: 2023,
-    src: "assets/media/videos/edits/2023/edit-2023-03.mp4",
-    poster: "assets/media/posters/edit-2023-03.webp",
-    format: "square",
-    featured: false,
-  },
-  {
-    id: "edit-2023-04",
-    title: "Edit 04",
-    category: "edit",
-    year: 2023,
-    src: "assets/media/videos/edits/2023/edit-2023-04.mp4",
-    poster: "assets/media/posters/edit-2023-04.webp",
-    format: "square",
-    featured: false,
-  },
-  {
-    id: "edit-2023-05",
-    title: "Edit 05",
-    category: "edit",
-    year: 2023,
-    src: "assets/media/videos/edits/2023/edit-2023-05.mp4",
-    poster: "assets/media/posters/edit-2023-05.webp",
-    format: "square",
-    featured: false,
-  },
-  {
-    id: "edit-2023-06",
-    title: "Edit 06",
-    category: "edit",
-    year: 2023,
-    src: "assets/media/videos/edits/2023/edit-2023-06.mov",
-    poster: "assets/media/posters/edit-2023-06.webp",
-    format: "square",
-    featured: false,
-  },
-  {
-    id: "edit-2022-01",
-    title: "Edit 01",
-    category: "edit",
-    year: 2022,
-    src: "assets/media/videos/edits/2022/edit-2022-01.mp4",
-    poster: "assets/media/posters/edit-2022-01.webp",
-    format: "square",
-    featured: false,
-  },
+  { id: "akcni-reel", title: "Akční reel", category: "reel", year: null, src: "assets/media/videos/reels/akcni-reel.mp4", poster: "assets/media/posters/akcni-reel.webp", format: "portrait", featured: true },
+  { id: "filler-reel", title: "Filler reel", category: "reel", year: null, src: "assets/media/videos/reels/filler-reel.mp4", poster: "assets/media/posters/filler-reel.webp", format: "portrait", featured: false },
+  { id: "outro-2026", title: "Outro 2026", category: "graphic", year: 2026, src: "assets/media/videos/graphics/outro-2026.mp4", poster: "assets/media/posters/outro-2026.webp", format: "portrait", featured: true },
+  { id: "edit-2026-01", title: "Edit 01", category: "edit", year: 2026, src: "assets/media/videos/edits/2026/edit-2026-01.mp4", poster: "assets/media/posters/edit-2026-01.webp", format: "landscape", featured: false },
+  { id: "edit-2026-02", title: "Edit 02", category: "edit", year: 2026, src: "assets/media/videos/edits/2026/edit-2026-02.mp4", poster: "assets/media/posters/edit-2026-02.webp", format: "square", featured: true },
+  { id: "edit-2025-01", title: "Edit 01", category: "edit", year: 2025, src: "assets/media/videos/edits/2025/edit-2025-01.mp4", poster: "assets/media/posters/edit-2025-01.webp", format: "square", featured: false },
+  { id: "edit-2025-02", title: "Edit 02", category: "edit", year: 2025, src: "assets/media/videos/edits/2025/edit-2025-02.mp4", poster: "assets/media/posters/edit-2025-02.webp", format: "portrait", featured: false },
+  { id: "edit-2025-03", title: "Edit 03", category: "edit", year: 2025, src: "assets/media/videos/edits/2025/edit-2025-03.mp4", poster: "assets/media/posters/edit-2025-03.webp", format: "square", featured: false },
+  { id: "edit-2024-01", title: "Edit 01", category: "edit", year: 2024, src: "assets/media/videos/edits/2024/edit-2024-01.mp4", poster: "assets/media/posters/edit-2024-01.webp", format: "portrait", featured: false },
+  { id: "edit-2024-02", title: "Edit 02", category: "edit", year: 2024, src: "assets/media/videos/edits/2024/edit-2024-02.mp4", poster: "assets/media/posters/edit-2024-02.webp", format: "square", featured: false },
+  { id: "edit-2023-01", title: "Edit 01", category: "edit", year: 2023, src: "assets/media/videos/edits/2023/edit-2023-01.mp4", poster: "assets/media/posters/edit-2023-01.webp", format: "portrait", featured: false },
+  { id: "edit-2023-03", title: "Edit 03", category: "edit", year: 2023, src: "assets/media/videos/edits/2023/edit-2023-03.mp4", poster: "assets/media/posters/edit-2023-03.webp", format: "square", featured: false },
+  { id: "edit-2023-04", title: "Edit 04", category: "edit", year: 2023, src: "assets/media/videos/edits/2023/edit-2023-04.mp4", poster: "assets/media/posters/edit-2023-04.webp", format: "square", featured: false },
+  { id: "edit-2023-05", title: "Edit 05", category: "edit", year: 2023, src: "assets/media/videos/edits/2023/edit-2023-05.mp4", poster: "assets/media/posters/edit-2023-05.webp", format: "square", featured: false },
+  { id: "edit-2023-06", title: "Edit 06", category: "edit", year: 2023, src: "assets/media/videos/edits/2023/edit-2023-06.mov", poster: "assets/media/posters/edit-2023-06.webp", format: "square", featured: false },
+  { id: "edit-2022-01", title: "Edit 01", category: "edit", year: 2022, src: "assets/media/videos/edits/2022/edit-2022-01.mp4", poster: "assets/media/posters/edit-2022-01.webp", format: "square", featured: false },
 ];
 
 const videoYearsContainer = document.querySelector("[data-video-years]");
@@ -228,24 +84,17 @@ const renderVideoButton = (video) => `
 
 const renderVideoYearGroups = (activeYear = "2026") => {
   if (!videoYearsContainer) return;
-
   const selectedYear = Number(activeYear);
-  const videos = portfolioVideos.filter(
-    (video) => video.category === "edit" && video.year === selectedYear,
-  );
-
+  const videos = portfolioVideos.filter((video) => video.category === "edit" && video.year === selectedYear);
   videoYearsContainer.innerHTML = `
     <section class="motion-year-group" aria-label="Edity z roku ${selectedYear}">
-      <div class="motion-year-grid">
-        ${videos.map((video) => renderVideoButton(video)).join("")}
-      </div>
+      <div class="motion-year-grid">${videos.map(renderVideoButton).join("")}</div>
     </section>
   `;
 };
 
 const openVideoModal = (video) => {
   if (!videoModal || !videoPlayer || !videoModalTitle || !videoModalMeta || !videoModalMedia) return;
-
   lastFocusedVideoTrigger = document.activeElement;
   videoModalTitle.textContent = video.title;
   videoModalMeta.textContent = video.year ? String(video.year) : "Vybraná práce";
@@ -260,7 +109,6 @@ const openVideoModal = (video) => {
 
 const closeVideoModal = () => {
   if (!videoModal || !videoPlayer || videoModal.hidden) return;
-
   videoPlayer.pause();
   videoPlayer.removeAttribute("src");
   videoPlayer.removeAttribute("poster");
@@ -271,23 +119,16 @@ const closeVideoModal = () => {
 };
 
 renderVideoYearGroups(videoYearSelect?.value || "2026");
-
-videoYearSelect?.addEventListener("change", () => {
-  renderVideoYearGroups(videoYearSelect.value);
-});
+videoYearSelect?.addEventListener("change", () => renderVideoYearGroups(videoYearSelect.value));
 
 document.addEventListener("click", (event) => {
   const trigger = event.target.closest("[data-video-id]");
   if (!trigger) return;
-
   const video = portfolioVideos.find((item) => item.id === trigger.dataset.videoId);
   if (video) openVideoModal(video);
 });
 
-videoModal?.querySelectorAll("[data-video-close]").forEach((closeTrigger) => {
-  closeTrigger.addEventListener("click", closeVideoModal);
-});
-
+videoModal?.querySelectorAll("[data-video-close]").forEach((closeTrigger) => closeTrigger.addEventListener("click", closeVideoModal));
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeVideoModal();
 });
@@ -299,26 +140,63 @@ const cleanLongDashes = () => {
 
   while (node) {
     const parent = node.parentElement;
-    if (
-      parent &&
-      !parent.closest("script, style, code, pre") &&
-      (node.nodeValue.includes("—") || node.nodeValue.includes("–"))
-    ) {
+    if (parent && !parent.closest("script, style, code, pre") && (node.nodeValue.includes("—") || node.nodeValue.includes("–"))) {
       textNodes.push(node);
     }
     node = walker.nextNode();
   }
 
   textNodes.forEach((textNode) => {
-    textNode.nodeValue = textNode.nodeValue
-      .replace(/\s*—\s*/g, ", ")
-      .replace(/\s*–\s*/g, " - ");
+    textNode.nodeValue = textNode.nodeValue.replace(/\s*—\s*/g, ", ").replace(/\s*–\s*/g, " - ");
   });
+};
+
+const addMobileFeaturedLink = () => {
+  const handDrawnLink = document.querySelector(".featured-web-button.click-arrow-link");
+  if (!handDrawnLink || document.querySelector(".featured-web-mobile-link")) return;
+
+  const mobileLink = document.createElement("a");
+  mobileLink.className = "text-link featured-web-mobile-link";
+  mobileLink.href = handDrawnLink.getAttribute("href") || "weby.html";
+  mobileLink.textContent = "Prohlédnout weby";
+  handDrawnLink.insertAdjacentElement("afterend", mobileLink);
+};
+
+const enhanceSiteFooter = () => {
+  const footer = document.querySelector(".site-footer");
+  if (!footer || footer.querySelector(".footer-shell")) return;
+  document.body.id ||= "top";
+
+  footer.innerHTML = `
+    <div class="footer-shell">
+      <div class="footer-brand">
+        <strong>Eliška Turková</strong>
+        <span>Web development, UI/UX design, video editing a vizuální obsah.</span>
+      </div>
+      <nav class="footer-column" aria-label="Odkazy ve footeru">
+        <strong>Portfolio</strong>
+        <a href="weby.html">Weby</a>
+        <a href="work.html">Video</a>
+        <a href="pricing.html">Ceník</a>
+        <a href="about.html">O mně</a>
+      </nav>
+      <div class="footer-socials">
+        <strong>Sociální sítě</strong>
+        <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.instagram.com/turkovq/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@ellaaep" target="_blank" rel="noreferrer">TikTok</a>
+        <a href="contact.html">Kontakt</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© ${new Date().getFullYear()} Eliška Turková</span>
+        <a href="#top">Zpět nahoru ↑</a>
+      </div>
+    </div>
+  `;
 };
 
 const installBubbleFilter = () => {
   if (document.querySelector(".bubble-goo-defs")) return;
-
   const wrapper = document.createElement("div");
   wrapper.className = "bubble-goo-defs";
   wrapper.setAttribute("aria-hidden", "true");
@@ -338,32 +216,29 @@ const installBubbleFilter = () => {
 
 const enhanceBubbleButtons = () => {
   installBubbleFilter();
+  document.querySelectorAll("a.button, button.button, a.text-link, button.send-mail-btn").forEach((button) => {
+    if (button.classList.contains("bubble-button")) return;
 
-  document
-    .querySelectorAll("a.button, button.button, a.text-link, button.send-mail-btn")
-    .forEach((button) => {
-      if (button.classList.contains("bubble-button")) return;
+    const label = document.createElement("span");
+    label.className = "bubble-button__label";
+    while (button.firstChild) label.appendChild(button.firstChild);
 
-      const label = document.createElement("span");
-      label.className = "bubble-button__label";
-      while (button.firstChild) label.appendChild(button.firstChild);
+    const effect = document.createElement("span");
+    effect.className = "bubble-button__effect";
+    effect.setAttribute("aria-hidden", "true");
+    effect.innerHTML = `
+      <span class="bubble-button__particle top-left bubble-one"></span>
+      <span class="bubble-button__particle top-left bubble-two"></span>
+      <span class="bubble-button__particle top-left bubble-three"></span>
+      <span class="bubble-button__core"></span>
+      <span class="bubble-button__particle bottom-right bubble-one"></span>
+      <span class="bubble-button__particle bottom-right bubble-two"></span>
+      <span class="bubble-button__particle bottom-right bubble-three"></span>
+    `;
 
-      const effect = document.createElement("span");
-      effect.className = "bubble-button__effect";
-      effect.setAttribute("aria-hidden", "true");
-      effect.innerHTML = `
-        <span class="bubble-button__particle top-left bubble-one"></span>
-        <span class="bubble-button__particle top-left bubble-two"></span>
-        <span class="bubble-button__particle top-left bubble-three"></span>
-        <span class="bubble-button__core"></span>
-        <span class="bubble-button__particle bottom-right bubble-one"></span>
-        <span class="bubble-button__particle bottom-right bubble-two"></span>
-        <span class="bubble-button__particle bottom-right bubble-three"></span>
-      `;
-
-      button.classList.add("bubble-button");
-      button.append(label, effect);
-    });
+    button.classList.add("bubble-button");
+    button.append(label, effect);
+  });
 };
 
 const setupMediaCarousels = () => {
@@ -402,22 +277,17 @@ const setupMediaCarousels = () => {
       nextButton.disabled = grid.scrollLeft >= maxScroll - 2;
     };
 
-    previousButton.addEventListener("click", () => {
-      grid.scrollBy({ left: -getStep(), behavior: "smooth" });
-    });
-
-    nextButton.addEventListener("click", () => {
-      grid.scrollBy({ left: getStep(), behavior: "smooth" });
-    });
-
+    previousButton.addEventListener("click", () => grid.scrollBy({ left: -getStep(), behavior: "smooth" }));
+    nextButton.addEventListener("click", () => grid.scrollBy({ left: getStep(), behavior: "smooth" }));
     grid.addEventListener("scroll", updateButtons, { passive: true });
     window.addEventListener("resize", updateButtons);
     requestAnimationFrame(updateButtons);
-
     wrapper.dataset.carouselIndex = String(index);
   });
 };
 
 cleanLongDashes();
+addMobileFeaturedLink();
+enhanceSiteFooter();
 enhanceBubbleButtons();
 setupMediaCarousels();
