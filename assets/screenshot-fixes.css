@@ -1,0 +1,238 @@
+/* Corrections based on the latest light and dark homepage screenshots. */
+
+/* Softer light-mode sticky note and slightly deeper dark-mode accent. */
+.featured-web-note,
+.website-note {
+  background: #f5edb4 !important;
+}
+
+[data-theme="dark"] .featured-web-note,
+[data-theme="dark"] .website-note {
+  background: #b5d3e4 !important;
+}
+
+/* Keep all copy inside the note instead of clipping or escaping the box. */
+.featured-web-note,
+.website-note,
+.website-card:nth-child(even) .website-note {
+  overflow: hidden !important;
+}
+
+.featured-web-note h3,
+.website-note h2 {
+  margin: 0 0 7px !important;
+  line-height: 1.03 !important;
+}
+
+.featured-web-note p,
+.website-note p {
+  margin: 0 !important;
+  line-height: 1.34 !important;
+}
+
+/* The website itself is centred independently; the note sits to its left. */
+.featured-web {
+  --featured-web-width: min(56vw, 820px);
+  --featured-web-half: min(28vw, 410px);
+  --featured-note-width: clamp(150px, 16vw, 190px);
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: auto auto !important;
+  grid-template-areas:
+    "screen"
+    "action" !important;
+  row-gap: 18px !important;
+  justify-items: center !important;
+  align-items: start !important;
+  width: 100% !important;
+}
+
+.featured-web-screen {
+  grid-area: screen !important;
+  width: var(--featured-web-width) !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+}
+
+.featured-web-note {
+  position: absolute !important;
+  z-index: 4 !important;
+  top: 47% !important;
+  left: calc(50% - var(--featured-web-half) - var(--featured-note-width) - 24px) !important;
+  width: var(--featured-note-width) !important;
+  min-height: 0 !important;
+  height: clamp(220px, 22vw, 286px) !important;
+  max-height: none !important;
+  padding: 24px 18px 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  transform: translateY(-50%) rotate(-0.6deg) !important;
+}
+
+.featured-web-note h3 {
+  font-size: clamp(22px, 2.2vw, 31px) !important;
+}
+
+.featured-web-note p {
+  font-size: clamp(12px, 1.15vw, 15px) !important;
+}
+
+/* Put the handwritten arrow group on the right under the centred website. */
+.featured-web-button {
+  position: static !important;
+  grid-area: action !important;
+  display: grid !important;
+  width: var(--featured-web-width) !important;
+  max-width: 100% !important;
+  justify-items: end !important;
+  justify-self: center !important;
+  padding-right: clamp(18px, 4vw, 54px) !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+.featured-web-button .click-arrow-asset,
+.featured-web-button .click-text-asset {
+  width: clamp(82px, 8vw, 116px) !important;
+}
+
+/* Portfolio cards align according to the web previews, not according to note height. */
+.websites-grid {
+  align-items: start !important;
+}
+
+.website-card,
+.website-card:nth-child(even) {
+  align-items: center !important;
+}
+
+.website-note,
+.website-card:nth-child(even) .website-note {
+  height: clamp(228px, 18vw, 254px) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 22px 15px 16px !important;
+}
+
+.website-note h2 {
+  font-size: clamp(15px, 1.2vw, 18px) !important;
+}
+
+.website-note p {
+  font-size: clamp(10.4px, 0.8vw, 11.8px) !important;
+}
+
+.website-screen,
+.website-card:nth-child(even) .website-screen {
+  align-self: center !important;
+}
+
+.website-open-button,
+.website-card:nth-child(even) .website-open-button {
+  right: 8px !important;
+  bottom: 10px !important;
+  left: auto !important;
+}
+
+/* Lighter pink in light mode, darker purple in dark mode. */
+.bubble-button {
+  --bubble-action: #f5a6c2 !important;
+}
+
+[data-theme="dark"] .bubble-button {
+  --bubble-action: #7052c7 !important;
+}
+
+@media (max-width: 980px) {
+  .featured-web {
+    --featured-web-width: min(58vw, 620px);
+    --featured-web-half: min(29vw, 310px);
+    --featured-note-width: clamp(138px, 19vw, 170px);
+  }
+
+  .featured-web-note {
+    height: clamp(205px, 27vw, 248px) !important;
+    padding: 21px 14px 15px !important;
+  }
+
+  .featured-web-note h3 {
+    font-size: clamp(19px, 2.6vw, 25px) !important;
+  }
+
+  .featured-web-note p {
+    font-size: clamp(10.8px, 1.45vw, 13px) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .featured-web {
+    --featured-web-width: min(64vw, 520px);
+    --featured-web-half: min(32vw, 260px);
+    --featured-note-width: clamp(118px, 26vw, 148px);
+  }
+
+  .featured-web-note {
+    left: calc(50% - var(--featured-web-half) - var(--featured-note-width) - 12px) !important;
+    height: clamp(185px, 39vw, 224px) !important;
+    padding: 18px 11px 13px !important;
+  }
+
+  .featured-web-note h3 {
+    font-size: clamp(16px, 4.2vw, 21px) !important;
+  }
+
+  .featured-web-note p {
+    font-size: clamp(9.6px, 2.55vw, 11.4px) !important;
+  }
+
+  .featured-web-button {
+    display: none !important;
+  }
+
+  .featured-web-mobile-link {
+    display: inline-grid !important;
+    grid-area: action !important;
+    justify-self: end !important;
+    margin-right: calc((100% - var(--featured-web-width)) / 2) !important;
+  }
+
+  .website-note,
+  .website-card:nth-child(even) .website-note {
+    height: 214px !important;
+    padding: 18px 11px 13px !important;
+  }
+
+  .website-note h2 {
+    font-size: 14px !important;
+  }
+
+  .website-note p {
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .featured-web {
+    --featured-web-width: min(62vw, 360px);
+    --featured-web-half: min(31vw, 180px);
+    --featured-note-width: 108px;
+  }
+
+  .featured-web-note {
+    left: calc(50% - var(--featured-web-half) - var(--featured-note-width) - 8px) !important;
+    height: 190px !important;
+    padding: 17px 9px 12px !important;
+  }
+
+  .featured-web-note h3 {
+    font-size: 15px !important;
+  }
+
+  .featured-web-note p {
+    font-size: 9.2px !important;
+    line-height: 1.28 !important;
+  }
+}
