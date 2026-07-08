@@ -1,0 +1,83 @@
+name: Consolidate CSS
+
+on:
+  push:
+    paths:
+      - ".github/workflows/consolidate-css.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  consolidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Merge active CSS into styles.css
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('.')
+          styles_path = root / 'assets/styles.css'
+          app_path = root / 'assets/app.js'
+
+          css_files = [
+              root / 'assets/content-overrides.css',
+              root / 'assets/responsive-fixes.css',
+              root / 'assets/final-ui-fixes.css',
+              root / 'assets/footer-icons-overrides.css',
+              root / 'assets/bubble-buttons.css',
+              root / 'assets/screenshot-fixes.css',
+          ]
+
+          marker = '/* ===== CONSOLIDATED PORTFOLIO OVERRIDES ===== */'
+          base_css = styles_path.read_text(encoding='utf-8')
+          if marker in base_css:
+              base_css = base_css.split(marker, 1)[0].rstrip()
+
+          sections = []
+          for css_file in css_files:
+              if not css_file.exists():
+                  continue
+              css = css_file.read_text(encoding='utf-8')
+              css = re.sub(r'^\s*@import\s+url\([^\n]+\);\s*', '', css, flags=re.MULTILINE)
+              sections.append(f'/* Source: {css_file.name} */\n{css.strip()}')
+
+          combined = base_css.rstrip() + '\n\n' + marker + '\n\n' + '\n\n'.join(sections) + '\n'
+          styles_path.write_text(combined, encoding='utf-8')
+
+          app = app_path.read_text(encoding='utf-8')
+          root_marker = 'const root = document.documentElement;'
+          if root_marker in app:
+              app = root_marker + app.split(root_marker, 1)[1]
+              app_path.write_text(app, encoding='utf-8')
+
+          for html_path in root.glob('*.html'):
+              html = html_path.read_text(encoding='utf-8')
+              html = re.sub(
+                  r'assets/styles\.css(?:\?v=[^"\']+)?',
+                  'assets/styles.css?v=20260708-single-v1',
+                  html,
+              )
+              html_path.write_text(html, encoding='utf-8')
+
+          for css_file in css_files:
+              if css_file.exists():
+                  css_file.unlink()
+          PY
+
+      - name: Commit consolidated stylesheet
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/styles.css assets/app.js assets/*.css *.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Consolidate all CSS into styles.css"
+            git push
+          fi
