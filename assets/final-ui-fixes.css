@@ -1,0 +1,287 @@
+/* Final visual corrections: paper notes, centered mobile layouts, buttons and simple footer. */
+
+/* Keep the bubble button perfectly centered before hover. */
+.bubble-button__particle {
+  opacity: 0 !important;
+}
+
+.bubble-button__core {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.bubble-button:hover .bubble-button__core,
+.bubble-button:focus-visible .bubble-button__core {
+  animation-name: bubble-core-bounce !important;
+}
+
+/* Paper texture shared by the homepage note and project notes. */
+.featured-web-note,
+.website-note {
+  isolation: isolate;
+  border: 1px solid rgba(104, 76, 47, 0.20) !important;
+  background-color: #e5cfa7 !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.63' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23paper)' opacity='.30'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.58), transparent 32%),
+    radial-gradient(circle at 82% 84%, rgba(103, 72, 38, 0.10), transparent 38%),
+    linear-gradient(180deg, #ebdcbd 0%, #dfc79b 100%) !important;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat !important;
+  background-size: 150px 150px, auto, auto, auto !important;
+  background-blend-mode: multiply, normal, normal, normal !important;
+  box-shadow:
+    0 14px 28px rgba(62, 39, 19, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+.featured-web-note::after,
+.website-note::after {
+  display: none !important;
+}
+
+[data-theme="dark"] .featured-web-note,
+[data-theme="dark"] .website-note {
+  border-color: rgba(172, 214, 241, 0.36) !important;
+  background-color: #aacde5 !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.63' numOctaves='4' seed='13' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23paper)' opacity='.28'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.52), transparent 32%),
+    radial-gradient(circle at 82% 84%, rgba(43, 82, 113, 0.13), transparent 38%),
+    linear-gradient(180deg, #c4e0f2 0%, #9fc5df 100%) !important;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat !important;
+  background-size: 150px 150px, auto, auto, auto !important;
+  background-blend-mode: multiply, normal, normal, normal !important;
+  color: #1d2532 !important;
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58) !important;
+}
+
+[data-theme="dark"] .featured-web-note h3,
+[data-theme="dark"] .featured-web-note p,
+[data-theme="dark"] .website-note h2,
+[data-theme="dark"] .website-note p {
+  color: #1d2532 !important;
+}
+
+/* Simple footer with only social icons, copyright and back-to-top. */
+.site-footer {
+  display: block !important;
+  width: min(1120px, calc(100% - 32px)) !important;
+  margin: 0 auto !important;
+  padding: 32px 0 24px !important;
+  border: 0 !important;
+}
+
+.footer-shell {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 24px !important;
+  justify-items: center !important;
+  padding: clamp(28px, 5vw, 48px) clamp(20px, 5vw, 54px) 20px !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 22px !important;
+  background: #1d2532 !important;
+  box-shadow: 0 18px 44px rgba(20, 25, 35, 0.24) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .footer-shell {
+  background: #111722 !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38) !important;
+}
+
+.footer-socials {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+}
+
+.footer-social-link {
+  display: grid !important;
+  width: 48px !important;
+  height: 48px !important;
+  place-items: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease !important;
+}
+
+.footer-social-link:hover {
+  border-color: #ee719e !important;
+  background: #ee719e !important;
+  color: #ffffff !important;
+  transform: translateY(-3px) scale(1.04) !important;
+}
+
+[data-theme="dark"] .footer-social-link:hover {
+  border-color: #9b7cff !important;
+  background: #9b7cff !important;
+}
+
+.footer-social-link svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+}
+
+.footer-bottom {
+  display: flex !important;
+  width: 100% !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  padding-top: 18px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.62) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  transition: color 160ms ease !important;
+}
+
+.footer-bottom a:hover {
+  color: #ee719e !important;
+  transform: none !important;
+}
+
+[data-theme="dark"] .footer-bottom a:hover {
+  color: #9b7cff !important;
+}
+
+/* Center the homepage feature cleanly on smaller screens. */
+@media (max-width: 900px) {
+  .featured-web {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .featured-web-screen {
+    order: 1 !important;
+    width: min(100%, 720px) !important;
+    margin-inline: auto !important;
+  }
+
+  .featured-web-note {
+    position: relative !important;
+    inset: auto !important;
+    order: 2 !important;
+    width: min(420px, 90%) !important;
+    margin: 0 auto !important;
+    padding: 18px 20px !important;
+    text-align: center !important;
+    transform: rotate(-0.4deg) !important;
+  }
+
+  .featured-web-button.click-arrow-link {
+    display: none !important;
+  }
+
+  .featured-web-mobile-link {
+    order: 3 !important;
+    display: inline-grid !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Stack each web preview and keep the paper note centered underneath. */
+@media (max-width: 1120px) {
+  .website-card,
+  .website-card:nth-child(even) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    margin-inline: auto !important;
+  }
+
+  .website-screen,
+  .website-card:nth-child(even) .website-screen {
+    position: relative !important;
+    inset: auto !important;
+    order: 1 !important;
+    width: min(100%, 760px) !important;
+    margin-inline: auto !important;
+  }
+
+  .website-side-info,
+  .website-card:nth-child(even) .website-side-info {
+    position: static !important;
+    order: 2 !important;
+    display: grid !important;
+    width: 100% !important;
+    justify-items: center !important;
+    margin-inline: auto !important;
+  }
+
+  .website-note,
+  .website-card:nth-child(even) .website-note {
+    position: relative !important;
+    inset: auto !important;
+    left: auto !important;
+    width: min(430px, 90%) !important;
+    margin: 0 auto !important;
+    padding: 18px 20px !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    transform: rotate(-0.4deg) !important;
+  }
+
+  .website-open-button.click-arrow-link {
+    display: none !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .featured-web-note,
+  .website-note,
+  .website-card:nth-child(even) .website-note {
+    width: min(360px, 92%) !important;
+    padding: 16px 18px !important;
+  }
+
+  .site-footer {
+    width: min(100% - 20px, 1120px) !important;
+    padding-top: 24px !important;
+  }
+
+  .footer-shell {
+    gap: 20px !important;
+    padding: 28px 18px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .footer-social-link {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
