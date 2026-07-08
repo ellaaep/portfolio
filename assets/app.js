@@ -3,9 +3,14 @@ contentStyles.rel = "stylesheet";
 contentStyles.href = "assets/content-overrides.css?v=20260708-copy-v3";
 document.head.appendChild(contentStyles);
 
+const responsiveStyles = document.createElement("link");
+responsiveStyles.rel = "stylesheet";
+responsiveStyles.href = "assets/responsive-fixes.css?v=20260708-responsive-v1";
+document.head.appendChild(responsiveStyles);
+
 const bubbleStyles = document.createElement("link");
 bubbleStyles.rel = "stylesheet";
-bubbleStyles.href = "assets/bubble-buttons.css?v=20260708-bubble-v1";
+bubbleStyles.href = "assets/bubble-buttons.css?v=20260708-bubble-v2";
 document.head.appendChild(bubbleStyles);
 
 const root = document.documentElement;
@@ -320,9 +325,9 @@ const installBubbleFilter = () => {
   wrapper.innerHTML = `
     <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" focusable="false">
       <defs>
-        <filter id="portfolio-bubble-goo">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"></feGaussianBlur>
-          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"></feColorMatrix>
+        <filter id="portfolio-bubble-goo" x="-100%" y="-300%" width="300%" height="700%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
           <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
         </filter>
       </defs>
@@ -347,13 +352,13 @@ const enhanceBubbleButtons = () => {
       effect.className = "bubble-button__effect";
       effect.setAttribute("aria-hidden", "true");
       effect.innerHTML = `
+        <span class="bubble-button__particle top-left bubble-one"></span>
+        <span class="bubble-button__particle top-left bubble-two"></span>
+        <span class="bubble-button__particle top-left bubble-three"></span>
         <span class="bubble-button__core"></span>
-        <span class="bubble-button__particle"></span>
-        <span class="bubble-button__particle"></span>
-        <span class="bubble-button__particle"></span>
-        <span class="bubble-button__particle"></span>
-        <span class="bubble-button__particle"></span>
-        <span class="bubble-button__particle"></span>
+        <span class="bubble-button__particle bottom-right bubble-one"></span>
+        <span class="bubble-button__particle bottom-right bubble-two"></span>
+        <span class="bubble-button__particle bottom-right bubble-three"></span>
       `;
 
       button.classList.add("bubble-button");
@@ -361,5 +366,58 @@ const enhanceBubbleButtons = () => {
     });
 };
 
+const setupMediaCarousels = () => {
+  document.querySelectorAll(".home-video-grid, .motion-featured-grid").forEach((grid, index) => {
+    if (grid.closest(".media-arrow-carousel") || grid.children.length < 2) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "media-arrow-carousel";
+
+    const previousButton = document.createElement("button");
+    previousButton.className = "media-arrow-carousel__button media-arrow-carousel__button--previous";
+    previousButton.type = "button";
+    previousButton.setAttribute("aria-label", "Předchozí ukázka");
+    previousButton.textContent = "‹";
+
+    const nextButton = document.createElement("button");
+    nextButton.className = "media-arrow-carousel__button media-arrow-carousel__button--next";
+    nextButton.type = "button";
+    nextButton.setAttribute("aria-label", "Další ukázka");
+    nextButton.textContent = "›";
+
+    grid.parentNode.insertBefore(wrapper, grid);
+    wrapper.append(previousButton, grid, nextButton);
+
+    const getStep = () => {
+      const firstItem = grid.firstElementChild;
+      if (!firstItem) return grid.clientWidth;
+      const styles = window.getComputedStyle(grid);
+      const gap = Number.parseFloat(styles.columnGap || styles.gap || "0") || 0;
+      return firstItem.getBoundingClientRect().width + gap;
+    };
+
+    const updateButtons = () => {
+      const maxScroll = Math.max(0, grid.scrollWidth - grid.clientWidth);
+      previousButton.disabled = grid.scrollLeft <= 2;
+      nextButton.disabled = grid.scrollLeft >= maxScroll - 2;
+    };
+
+    previousButton.addEventListener("click", () => {
+      grid.scrollBy({ left: -getStep(), behavior: "smooth" });
+    });
+
+    nextButton.addEventListener("click", () => {
+      grid.scrollBy({ left: getStep(), behavior: "smooth" });
+    });
+
+    grid.addEventListener("scroll", updateButtons, { passive: true });
+    window.addEventListener("resize", updateButtons);
+    requestAnimationFrame(updateButtons);
+
+    wrapper.dataset.carouselIndex = String(index);
+  });
+};
+
 cleanLongDashes();
 enhanceBubbleButtons();
+setupMediaCarousels();
