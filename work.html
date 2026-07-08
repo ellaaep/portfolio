@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Video a grafický design v portfoliu Elišky Turkové.">
+    <meta name="description" content="Vybrané práce a grafický design v portfoliu Elišky Turkové.">
     <title>Práce | Eliška Turková</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css?v=20260707-os-wordmark-clean">
-    <script src="assets/app.js?v=20260707-os-wordmark-clean" defer></script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260708-video-footer-clean">
+    <script src="assets/app.js?v=20260708-video-footer-clean" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -41,167 +41,60 @@
     </header>
 
     <main>
-      <section class="page-cover">
-        <h1>Video a grafický design.</h1>
-        <p class="lead">Webové stránky mají vlastní stránku. Tady zůstávají dvě čisté kategorie: video editace a grafický design.</p>
-      </section>
+      <section class="work-category motion-section" id="video" aria-labelledby="featured-video-title">
+        <div class="motion-block">
+          <div class="motion-subheading">
+            <h2 id="featured-video-title">Vybrané práce</h2>
+          </div>
+          <div class="motion-featured-grid" data-video-featured></div>
+        </div>
 
-      <section class="work-category" id="video">
-        <div class="section-heading">
-          <div>
-            <h2>Video editace</h2>
+        <div class="motion-block motion-timeline-block">
+          <div class="motion-subheading motion-subheading-filtered">
+            <h3>Podle roku</h3>
+            <div class="motion-filters" aria-label="Filtrovat edity podle roku">
+              <button type="button" data-video-filter="2026" aria-pressed="true">2026</button>
+              <button type="button" data-video-filter="2025" aria-pressed="false">2025</button>
+              <button type="button" data-video-filter="2024" aria-pressed="false">2024</button>
+              <button type="button" data-video-filter="2023" aria-pressed="false">2023</button>
+              <button type="button" data-video-filter="2022" aria-pressed="false">2022</button>
+              <button type="button" data-video-filter="all" aria-pressed="false">Zobrazit více</button>
+            </div>
           </div>
-          <div class="section-actions">
-            <a class="button button-small button-secondary" href="https://www.tiktok.com/@ellaaep" target="_blank" rel="noreferrer">
-              TikTok
-            </a>
-            <button type="button" class="button button-small video-load-more" aria-expanded="false" aria-controls="more-videos">
-              Otevřít další
-            </button>
-          </div>
-        </div>
-        <div class="media-grid video-grid equal-grid">
-          <article class="media-card">
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title">
-              <h3>Bethesda historie</h3>
-            </div>
-            <p>Krátký edit pro sociální sítě s rytmem, titulky a jasným příběhem.</p>
-            <div class="card-actions">
-              <a class="button button-small" href="https://www.tiktok.com/@ellaaep" target="_blank" rel="noreferrer">
-                Otevřít video
-              </a>
-              <a class="button button-small button-secondary" href="https://www.tiktok.com/@ellaaep" target="_blank" rel="noreferrer">
-                TikTok
-              </a>
-            </div>
-          </article>
-          <article class="media-card">
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title">
-              <h3>Social edit</h3>
-            </div>
-            <p>Krátký dynamický střih pro sociální sítě, titulky, rytmus a čistý vizuální styl.</p>
-            <div class="card-actions">
-              <a class="button button-small button-secondary" href="https://www.tiktok.com/@ellaaep" target="_blank" rel="noreferrer">
-                Otevřít video
-              </a>
-            </div>
-          </article>
-          <article class="media-card">
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title">
-              <h3>Reels format</h3>
-            </div>
-            <p>Vertikální formát pro představení služby, produktu nebo krátké vizuální série.</p>
-            <div class="card-actions">
-              <a class="button button-small button-secondary" href="https://www.tiktok.com/@ellaaep" target="_blank" rel="noreferrer">
-                Otevřít video
-              </a>
-            </div>
-          </article>
-        </div>
-        <div class="media-grid video-grid equal-grid more-videos" id="more-videos" hidden>
-          <article class="media-card">
-            <!-- Doplnit náhled, název, popis a URL videa -->
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title"><h3>Video projekt 04</h3></div>
-            <p>Placeholder pro budoucí video ukázku.</p>
-          </article>
-          <article class="media-card">
-            <!-- Doplnit náhled, název, popis a URL videa -->
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title"><h3>Video projekt 05</h3></div>
-            <p>Placeholder pro budoucí video ukázku.</p>
-          </article>
-          <article class="media-card">
-            <!-- Doplnit náhled, název, popis a URL videa -->
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title"><h3>Video projekt 06</h3></div>
-            <p>Placeholder pro budoucí video ukázku.</p>
-          </article>
-          <article class="media-card">
-            <!-- Doplnit náhled, název, popis a URL videa -->
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title"><h3>Video projekt 07</h3></div>
-            <p>Placeholder pro budoucí video ukázku.</p>
-          </article>
-          <article class="media-card">
-            <!-- Doplnit náhled, název, popis a URL videa -->
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title"><h3>Video projekt 08</h3></div>
-            <p>Placeholder pro budoucí video ukázku.</p>
-          </article>
-          <article class="media-card">
-            <!-- Doplnit náhled, název, popis a URL videa -->
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title"><h3>Video projekt 09</h3></div>
-            <p>Placeholder pro budoucí video ukázku.</p>
-          </article>
-          <article class="media-card">
-            <!-- Doplnit náhled, název, popis a URL videa -->
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title"><h3>Video projekt 10</h3></div>
-            <p>Placeholder pro budoucí video ukázku.</p>
-          </article>
-          <article class="media-card">
-            <!-- Doplnit náhled, název, popis a URL videa -->
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title"><h3>Video projekt 11</h3></div>
-            <p>Placeholder pro budoucí video ukázku.</p>
-          </article>
-          <article class="media-card">
-            <!-- Doplnit náhled, název, popis a URL videa -->
-            <div class="media-placeholder" aria-label="Místo pro náhled videa">Tady bude video</div>
-            <div class="project-title"><h3>Video projekt 12</h3></div>
-            <p>Placeholder pro budoucí video ukázku.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="work-category" id="design">
-        <div class="section-heading">
-          <div>
-            <h2>Grafický design</h2>
-          </div>
-          <div class="section-actions">
-            <a class="button button-small button-secondary" href="#video">
-              Zpět na video
-            </a>
-          </div>
-        </div>
-        <div class="media-grid equal-grid">
-          <article class="media-card">
-            <div class="media-placeholder" aria-label="Místo pro náhled grafiky">Tady bude grafika</div>
-            <div class="project-title">
-              <h3>Visual set</h3>
-            </div>
-            <p>Sada vizuálů pro sociální sítě, jednotnou prezentaci a rychlé použití v obsahu.</p>
-            <div class="card-actions">
-              <a class="button button-small button-secondary" href="contact.html#contact-form">
-                Poptat grafiku
-              </a>
-            </div>
-          </article>
-          <article class="media-card">
-            <div class="media-placeholder" aria-label="Místo pro náhled grafiky">Tady bude grafika</div>
-            <div class="project-title">
-              <h3>Poster set</h3>
-            </div>
-            <p>Grafické výstupy s důrazem na kompozici, kontrast a čitelnost.</p>
-            <div class="card-actions">
-              <a class="button button-small button-secondary" href="contact.html#contact-form">
-                Poptat grafiku
-              </a>
-            </div>
-          </article>
+          <div class="motion-year-groups" data-video-years></div>
         </div>
       </section>
     </main>
 
+    <div class="video-modal" data-video-modal hidden role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+      <div class="video-modal-backdrop" data-video-close></div>
+      <div class="video-modal-panel">
+        <button class="video-modal-close" type="button" data-video-close aria-label="Zavřít video">×</button>
+        <div class="video-modal-copy">
+          <span data-video-modal-meta></span>
+          <h2 id="video-modal-title" data-video-modal-title>Ukázka</h2>
+        </div>
+        <div class="video-modal-media" data-video-modal-media>
+          <video controls preload="none" playsinline data-video-player></video>
+        </div>
+      </div>
+    </div>
+
     <footer class="site-footer">
-      <span>Eliška Turková</span>
-      <span>web design / video / design</span>
+      <nav class="footer-socials" aria-label="Sociální odkazy">
+        <a class="footer-icon" href="mailto:turkova.profi@gmail.com" aria-label="E-mail">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+        </a>
+        <a class="footer-icon" href="https://www.instagram.com/turkovq/" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="4"></rect><circle cx="12" cy="12" r="3.2"></circle><circle cx="16.7" cy="7.3" r="0.8"></circle></svg>
+        </a>
+        <a class="footer-icon" href="https://www.tiktok.com/@ellaaep" target="_blank" rel="noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.3a4 4 0 1 1-3.9-4"></path><path d="M14 4c1 3 2.7 4.7 5 5"></path></svg>
+        </a>
+        <a class="footer-icon" href="https://github.com/ellaaep" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <img src="assets/logos/skills/github.svg" alt="">
+        </a>
+      </nav>
     </footer>
   </body>
 </html>
