@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Vybrané práce a grafický design v portfoliu Elišky Turkové.">
-    <title>Práce | Eliška Turková</title>
+    <meta name="description" content="Vybrané video práce a grafický design v portfoliu Elišky Turkové.">
+    <title>Video | Eliška Turková</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css?v=20260708-video-footer-clean">
-    <script src="assets/app.js?v=20260708-video-footer-clean" defer></script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260708-year-center-note">
+    <script src="assets/app.js?v=20260708-year-center-note" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -24,7 +24,7 @@
           </button>
           <nav class="site-nav" id="site-nav" aria-label="Hlavní navigace">
             <a href="weby.html">Weby</a>
-            <a href="work.html" aria-current="page">Edit</a>
+            <a href="work.html" aria-current="page">Video</a>
             <a href="pricing.html">Ceník</a>
             <a href="spoluprace.html">Spolupráce</a>
             <a href="about.html">O mně</a>
@@ -44,14 +44,14 @@
       <section class="work-category motion-section" id="video" aria-labelledby="featured-video-title">
         <div class="motion-block">
           <div class="motion-subheading">
-            <h2 id="featured-video-title">Vybrané práce</h2>
+            <h2 id="featured-video-title">Vybrané video práce</h2>
           </div>
           <div class="motion-featured-grid" data-video-featured></div>
         </div>
 
         <div class="motion-block motion-timeline-block">
           <div class="motion-subheading motion-subheading-filtered">
-            <h3>Podle roku</h3>
+            <h3>Další edity podle roku</h3>
             <div class="motion-filters" aria-label="Filtrovat edity podle roku">
               <button type="button" data-video-filter="2026" aria-pressed="true">2026</button>
               <button type="button" data-video-filter="2025" aria-pressed="false">2025</button>
@@ -62,6 +62,45 @@
             </div>
           </div>
           <div class="motion-year-groups" data-video-years></div>
+        </div>
+      </section>
+
+      <section class="work-category" id="design" hidden>
+        <div class="section-heading">
+          <div>
+            <h2>Grafika a vizuální obsah</h2>
+          </div>
+          <div class="section-actions">
+            <a class="button button-small button-secondary" href="#video">
+              Zpět na videa
+            </a>
+          </div>
+        </div>
+        <div class="media-grid equal-grid">
+          <article class="media-card">
+            <div class="media-placeholder" aria-label="Místo pro náhled grafiky">Náhled připravuju</div>
+            <div class="project-title">
+              <h3>Sociální sítě</h3>
+            </div>
+            <p>Samostatné příspěvky i ucelené sady, které drží styl značky a zůstávají čitelné na první pohled.</p>
+            <div class="card-actions">
+              <a class="button button-small button-secondary" href="contact.html#contact-form">
+                Poptat grafiku
+              </a>
+            </div>
+          </article>
+          <article class="media-card">
+            <div class="media-placeholder" aria-label="Místo pro náhled grafiky">Náhled připravuju</div>
+            <div class="project-title">
+              <h3>Plakáty a promo materiály</h3>
+            </div>
+            <p>Plakáty, bannery a další promo materiály s důrazem na kompozici, hierarchii a informace, které mají být opravdu vidět.</p>
+            <div class="card-actions">
+              <a class="button button-small button-secondary" href="contact.html#contact-form">
+                Poptat grafiku
+              </a>
+            </div>
+          </article>
         </div>
       </section>
     </main>
@@ -81,20 +120,8 @@
     </div>
 
     <footer class="site-footer">
-      <nav class="footer-socials" aria-label="Sociální odkazy">
-        <a class="footer-icon" href="mailto:turkova.profi@gmail.com" aria-label="E-mail">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
-        </a>
-        <a class="footer-icon" href="https://www.instagram.com/turkovq/" target="_blank" rel="noreferrer" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="4"></rect><circle cx="12" cy="12" r="3.2"></circle><circle cx="16.7" cy="7.3" r="0.8"></circle></svg>
-        </a>
-        <a class="footer-icon" href="https://www.tiktok.com/@ellaaep" target="_blank" rel="noreferrer" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.3a4 4 0 1 1-3.9-4"></path><path d="M14 4c1 3 2.7 4.7 5 5"></path></svg>
-        </a>
-        <a class="footer-icon" href="https://github.com/ellaaep" target="_blank" rel="noreferrer" aria-label="GitHub">
-          <img src="assets/logos/skills/github.svg" alt="">
-        </a>
-      </nav>
+      <span>Eliška Turková</span>
+      <span>weby / video / grafika</span>
     </footer>
   </body>
 </html>
