@@ -1,5 +1,11 @@
 /* Convert the existing generated footer into a minimal icon footer. */
 
+/* Keep button particles hidden at rest, but reveal them while their corner animations run. */
+.bubble-button:hover .bubble-button__particle,
+.bubble-button:focus-visible .bubble-button__particle {
+  opacity: 1 !important;
+}
+
 .footer-brand,
 .footer-column,
 .footer-socials > strong {
