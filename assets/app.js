@@ -1,23 +1,3 @@
-const contentStyles = document.createElement("link");
-contentStyles.rel = "stylesheet";
-contentStyles.href = "assets/content-overrides.css?v=20260708-copy-v3";
-document.head.appendChild(contentStyles);
-
-const responsiveStyles = document.createElement("link");
-responsiveStyles.rel = "stylesheet";
-responsiveStyles.href = "assets/responsive-fixes.css?v=20260708-responsive-v2";
-document.head.appendChild(responsiveStyles);
-
-const bubbleStyles = document.createElement("link");
-bubbleStyles.rel = "stylesheet";
-bubbleStyles.href = "assets/bubble-buttons.css?v=20260708-bubble-v3";
-document.head.appendChild(bubbleStyles);
-
-const screenshotStyles = document.createElement("link");
-screenshotStyles.rel = "stylesheet";
-screenshotStyles.href = "assets/screenshot-fixes.css?v=20260708-screenshot-v1";
-document.head.appendChild(screenshotStyles);
-
 const root = document.documentElement;
 const themeButton = document.querySelector(".theme-toggle");
 const navButton = document.querySelector(".nav-toggle");
