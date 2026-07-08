@@ -3,6 +3,11 @@ contentStyles.rel = "stylesheet";
 contentStyles.href = "assets/content-overrides.css?v=20260708-copy-v3";
 document.head.appendChild(contentStyles);
 
+const bubbleStyles = document.createElement("link");
+bubbleStyles.rel = "stylesheet";
+bubbleStyles.href = "assets/bubble-buttons.css?v=20260708-bubble-v1";
+document.head.appendChild(bubbleStyles);
+
 const root = document.documentElement;
 const themeButton = document.querySelector(".theme-toggle");
 const navButton = document.querySelector(".nav-toggle");
@@ -281,3 +286,80 @@ videoModal?.querySelectorAll("[data-video-close]").forEach((closeTrigger) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeVideoModal();
 });
+
+const cleanLongDashes = () => {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  let node = walker.nextNode();
+
+  while (node) {
+    const parent = node.parentElement;
+    if (
+      parent &&
+      !parent.closest("script, style, code, pre") &&
+      (node.nodeValue.includes("—") || node.nodeValue.includes("–"))
+    ) {
+      textNodes.push(node);
+    }
+    node = walker.nextNode();
+  }
+
+  textNodes.forEach((textNode) => {
+    textNode.nodeValue = textNode.nodeValue
+      .replace(/\s*—\s*/g, ", ")
+      .replace(/\s*–\s*/g, " - ");
+  });
+};
+
+const installBubbleFilter = () => {
+  if (document.querySelector(".bubble-goo-defs")) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "bubble-goo-defs";
+  wrapper.setAttribute("aria-hidden", "true");
+  wrapper.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" focusable="false">
+      <defs>
+        <filter id="portfolio-bubble-goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"></feColorMatrix>
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+      </defs>
+    </svg>
+  `;
+  document.body.appendChild(wrapper);
+};
+
+const enhanceBubbleButtons = () => {
+  installBubbleFilter();
+
+  document
+    .querySelectorAll("a.button, button.button, a.text-link, button.send-mail-btn")
+    .forEach((button) => {
+      if (button.classList.contains("bubble-button")) return;
+
+      const label = document.createElement("span");
+      label.className = "bubble-button__label";
+      while (button.firstChild) label.appendChild(button.firstChild);
+
+      const effect = document.createElement("span");
+      effect.className = "bubble-button__effect";
+      effect.setAttribute("aria-hidden", "true");
+      effect.innerHTML = `
+        <span class="bubble-button__core"></span>
+        <span class="bubble-button__particle"></span>
+        <span class="bubble-button__particle"></span>
+        <span class="bubble-button__particle"></span>
+        <span class="bubble-button__particle"></span>
+        <span class="bubble-button__particle"></span>
+        <span class="bubble-button__particle"></span>
+      `;
+
+      button.classList.add("bubble-button");
+      button.append(label, effect);
+    });
+};
+
+cleanLongDashes();
+enhanceBubbleButtons();
