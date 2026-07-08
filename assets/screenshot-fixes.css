@@ -1,29 +1,25 @@
-/* Final alignment pass based on the latest screenshots. */
 
-/* Sticky notes: plain paper, no fold, no texture overlay, no internal line. */
 .featured-web-note,
 .website-note,
 .website-card:nth-child(even) .website-note {
   position: relative !important;
-  isolation: isolate !important;
   overflow: visible !important;
-  border: 1px solid rgba(79, 72, 45, 0.14) !important;
-  border-radius: 4px !important;
-  background: #f4ec9d !important;
+  background: #f3eb9d !important;
   background-image: none !important;
-  color: #1d2532 !important;
-  box-shadow: 0 8px 18px rgba(50, 43, 26, 0.11) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
   transform: none !important;
 }
 
 [data-theme="dark"] .featured-web-note,
 [data-theme="dark"] .website-note,
 [data-theme="dark"] .website-card:nth-child(even) .website-note {
-  border-color: rgba(84, 117, 139, 0.18) !important;
-  background: #b9d7e8 !important;
+  background: #b8d8ea !important;
   background-image: none !important;
-  color: #1d2532 !important;
-  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.18) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .featured-web-note::after,
@@ -33,54 +29,83 @@
   content: none !important;
 }
 
-/* Tape intentionally overlaps outside the note. */
+/* izolepa ven z lístečku */
 .featured-web-note::before,
 .website-note::before,
 .website-card:nth-child(even) .website-note::before {
+  content: "" !important;
   position: absolute !important;
-  z-index: 5 !important;
   top: -12px !important;
   left: 50% !important;
+  transform: translateX(-50%) !important;
   width: 68px !important;
-  height: 20px !important;
-  border: 1px solid rgba(116, 108, 86, 0.15) !important;
+  height: 18px !important;
+  background: rgba(235, 230, 215, 0.78) !important;
+  border: none !important;
   border-radius: 2px !important;
-  background: rgba(234, 228, 207, 0.82) !important;
-  background-image: none !important;
-  box-shadow: 0 2px 5px rgba(40, 34, 25, 0.08) !important;
-  content: "" !important;
-  transform: translateX(-50%) rotate(-1.5deg) !important;
+  box-shadow: none !important;
+  z-index: 5 !important;
 }
 
 [data-theme="dark"] .featured-web-note::before,
 [data-theme="dark"] .website-note::before,
 [data-theme="dark"] .website-card:nth-child(even) .website-note::before {
-  border-color: rgba(103, 132, 151, 0.18) !important;
-  background: rgba(224, 235, 241, 0.78) !important;
+  background: rgba(226, 235, 242, 0.78) !important;
 }
 
+/* text v lístku */
 .featured-web-note h3,
 .website-note h2,
 .website-card:nth-child(even) .website-note h2 {
   margin: 0 0 10px !important;
-  color: #1d2532 !important;
   line-height: 1.05 !important;
-  letter-spacing: -0.03em !important;
+  letter-spacing: -0.02em !important;
+  color: #1d2532 !important;
 }
 
 .featured-web-note p,
 .website-note p,
 .website-card:nth-child(even) .website-note p {
   margin: 0 !important;
+  line-height: 1.38 !important;
   color: #1d2532 !important;
-  line-height: 1.42 !important;
 }
 
-/* Homepage: the web stays centred; the note sits to its left; the arrow stays to the right. */
+/* menší nápis na homepage */
+.featured-web-note h3 {
+  font-size: clamp(18px, 1.7vw, 23px) !important;
+}
+
+.featured-web-note p {
+  font-size: clamp(12px, 0.95vw, 14px) !important;
+}
+
+/* větší lístečky na stránce weby */
+.website-note,
+.website-card:nth-child(even) .website-note {
+  min-height: 310px !important;
+  height: 310px !important;
+  width: 230px !important;
+  padding: 22px 18px 18px !important;
+}
+
+.website-note h2,
+.website-card:nth-child(even) .website-note h2 {
+  font-size: clamp(18px, 1.25vw, 22px) !important;
+}
+
+.website-note p,
+.website-card:nth-child(even) .website-note p {
+  font-size: clamp(12px, 0.9vw, 14px) !important;
+}
+
+/* -------------------------
+   2) HOMEPAGE
+   web uprostřed,
+   lístek vlevo,
+   šipka vpravo od webu
+-------------------------- */
 .featured-web {
-  --home-web-width: min(58vw, 820px);
-  --home-web-half: min(29vw, 410px);
-  --home-note-width: clamp(180px, 14vw, 220px);
   position: relative !important;
   display: grid !important;
   grid-template-columns: 1fr !important;
@@ -88,77 +113,70 @@
   grid-template-areas:
     "screen"
     "action" !important;
-  width: 100% !important;
-  row-gap: 16px !important;
-  align-items: start !important;
   justify-items: center !important;
+  align-items: start !important;
+  row-gap: 18px !important;
+  width: 100% !important;
 }
 
 .featured-web-screen {
   grid-area: screen !important;
-  width: var(--home-web-width) !important;
+  width: min(58vw, 840px) !important;
   max-width: 100% !important;
-  margin-inline: auto !important;
+  margin: 0 auto !important;
 }
 
 .featured-web-note {
   position: absolute !important;
-  z-index: 4 !important;
-  top: 48% !important;
-  left: calc(50% - var(--home-web-half) - var(--home-note-width) - 24px) !important;
-  width: var(--home-note-width) !important;
-  min-height: 0 !important;
-  height: clamp(250px, 20vw, 300px) !important;
-  max-height: none !important;
-  padding: 24px 18px 18px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  text-align: left !important;
+  top: 50% !important;
+  left: calc(50% - min(29vw, 420px) - 230px - 26px) !important;
   transform: translateY(-50%) !important;
-}
-
-.featured-web-note h3 {
-  font-size: clamp(20px, 1.65vw, 25px) !important;
-}
-
-.featured-web-note p {
-  font-size: clamp(12px, 0.95vw, 14px) !important;
+  width: 230px !important;
+  min-height: 300px !important;
+  height: 300px !important;
+  padding: 22px 18px 18px !important;
+  text-align: left !important;
+  z-index: 4 !important;
 }
 
 .featured-web-button {
-  position: static !important;
   grid-area: action !important;
+  position: static !important;
   display: grid !important;
-  width: var(--home-web-width) !important;
+  width: min(58vw, 840px) !important;
   max-width: 100% !important;
   justify-self: center !important;
   justify-items: end !important;
   margin: 0 !important;
-  padding-right: 8px !important;
+  padding-right: 0 !important;
   transform: none !important;
 }
 
 .featured-web-button .click-arrow-asset,
 .featured-web-button .click-text-asset {
-  width: clamp(88px, 7vw, 110px) !important;
+  width: 110px !important;
 }
 
+/* mobilní tlačítko nech schované na desktopu */
 .featured-web-mobile-link {
   display: none !important;
 }
 
-/* Web portfolio: two centred columns. Odd cards have note left, even cards note right. */
+/* -------------------------
+   3) STRÁNKA WEBY
+   všechno na střed,
+   levé projekty = lístek vlevo
+   pravé projekty = lístek vpravo
+-------------------------- */
 .websites-grid {
-  position: relative !important;
-  left: auto !important;
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 52px 42px !important;
-  width: min(1420px, calc(100vw - 46px)) !important;
+  gap: 52px 40px !important;
+  width: min(1420px, calc(100vw - 48px)) !important;
   margin: 0 auto !important;
-  align-items: start !important;
   justify-items: center !important;
+  align-items: start !important;
+  left: auto !important;
   transform: none !important;
 }
 
@@ -166,35 +184,33 @@
 .website-card:nth-child(even) {
   position: relative !important;
   display: grid !important;
-  width: 100% !important;
-  max-width: 690px !important;
-  min-width: 0 !important;
-  margin: 0 auto !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 20px !important;
+  gap: 22px !important;
+  width: 100% !important;
+  max-width: 700px !important;
+  margin: 0 auto !important;
 }
 
+/* levé karty = lístek vlevo */
 .website-card:nth-child(odd) {
-  grid-template-columns: minmax(180px, 220px) minmax(0, 1fr) !important;
+  grid-template-columns: 230px minmax(0, 1fr) !important;
   grid-template-areas: "note screen" !important;
 }
 
+/* pravé karty = lístek vpravo */
 .website-card:nth-child(even) {
-  grid-template-columns: minmax(0, 1fr) minmax(180px, 220px) !important;
+  grid-template-columns: minmax(0, 1fr) 230px !important;
   grid-template-areas: "screen note" !important;
 }
 
 .website-side-info,
 .website-card:nth-child(even) .website-side-info {
-  position: static !important;
   grid-area: note !important;
-  display: grid !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  justify-items: stretch !important;
-  align-self: center !important;
+  position: static !important;
+  width: 230px !important;
   margin: 0 !important;
+  justify-self: center !important;
 }
 
 .website-note,
@@ -202,79 +218,71 @@
   position: relative !important;
   inset: auto !important;
   left: auto !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  min-height: 300px !important;
-  height: 300px !important;
-  max-height: none !important;
-  padding: 24px 18px 18px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
   text-align: left !important;
-  transform: none !important;
-}
-
-.website-note h2,
-.website-card:nth-child(even) .website-note h2 {
-  font-size: clamp(18px, 1.35vw, 22px) !important;
-}
-
-.website-note p,
-.website-card:nth-child(even) .website-note p {
-  font-size: clamp(11.5px, 0.86vw, 13px) !important;
 }
 
 .website-screen,
 .website-card:nth-child(even) .website-screen {
+  grid-area: screen !important;
   position: relative !important;
   inset: auto !important;
-  grid-area: screen !important;
   width: 100% !important;
   max-width: 470px !important;
-  min-width: 0 !important;
   margin: 0 !important;
   justify-self: center !important;
-  align-self: center !important;
 }
 
 .website-viewport {
   aspect-ratio: 16 / 10 !important;
 }
 
-/* Arrows align with the side they point from. */
-.website-open-button,
-.website-card:nth-child(even) .website-open-button {
-  position: absolute !important;
-  z-index: 6 !important;
-  bottom: 4px !important;
-  width: 72px !important;
-  margin: 0 !important;
-}
+/* -------------------------
+   4) ŠIPKY "CLICK ME"
+   mají mířit od lístku
+   směrem na web
+-------------------------- */
 
+/* projekty s lístkem vlevo -> šipka zleva doprava */
 .website-card:nth-child(odd) .website-open-button {
-  right: 2px !important;
-  left: auto !important;
-  transform: rotate(-3deg) !important;
-}
-
-.website-card:nth-child(even) .website-open-button {
+  position: absolute !important;
+  left: -82px !important;
   right: auto !important;
-  left: 2px !important;
-  transform: rotate(3deg) !important;
+  bottom: 20px !important;
+  width: 92px !important;
+  margin: 0 !important;
+  transform: none !important;
 }
 
 .website-card:nth-child(odd) .click-arrow-asset,
 .website-card:nth-child(odd) .click-text-asset {
+  transform: scaleX(-1) !important;
+}
+
+/* projekty s lístkem vpravo -> šipka zprava doleva */
+.website-card:nth-child(even) .website-open-button {
+  position: absolute !important;
+  right: -82px !important;
+  left: auto !important;
+  bottom: 20px !important;
+  width: 92px !important;
+  margin: 0 !important;
   transform: none !important;
 }
 
 .website-card:nth-child(even) .click-arrow-asset,
 .website-card:nth-child(even) .click-text-asset {
-  transform: scaleX(-1) !important;
+  transform: none !important;
 }
 
-/* Button hover colours. */
+/* homepage šipka taky vpravo */
+.featured-web-button .click-arrow-asset,
+.featured-web-button .click-text-asset {
+  transform: none !important;
+}
+
+/* -------------------------
+   5) HOVER BARVY TLAČÍTEK
+-------------------------- */
 .bubble-button {
   --bubble-action: #f5a6c2 !important;
 }
@@ -283,80 +291,57 @@
   --bubble-action: #7052c7 !important;
 }
 
+/* -------------------------
+   6) TABLET
+-------------------------- */
 @media (max-width: 1180px) {
   .websites-grid {
     grid-template-columns: 1fr !important;
-    width: min(760px, calc(100vw - 32px)) !important;
+    width: min(780px, calc(100vw - 32px)) !important;
     gap: 44px !important;
   }
 
-  .website-card,
-  .website-card:nth-child(even) {
-    max-width: 760px !important;
-  }
-
   .website-card:nth-child(odd) {
-    grid-template-columns: minmax(190px, 230px) minmax(0, 1fr) !important;
+    grid-template-columns: 230px minmax(0, 1fr) !important;
   }
 
   .website-card:nth-child(even) {
-    grid-template-columns: minmax(0, 1fr) minmax(190px, 230px) !important;
+    grid-template-columns: minmax(0, 1fr) 230px !important;
   }
 }
 
-@media (max-width: 920px) {
-  .featured-web {
-    --home-web-width: min(62vw, 620px);
-    --home-web-half: min(31vw, 310px);
-    --home-note-width: clamp(150px, 19vw, 185px);
-  }
-
-  .featured-web-note {
-    left: calc(50% - var(--home-web-half) - var(--home-note-width) - 14px) !important;
-    height: clamp(225px, 28vw, 270px) !important;
-    padding: 21px 14px 15px !important;
-  }
-
-  .featured-web-note h3 {
-    font-size: clamp(17px, 2.4vw, 22px) !important;
-  }
-
-  .featured-web-note p {
-    font-size: clamp(10.7px, 1.45vw, 12.7px) !important;
-  }
-}
-
+/* -------------------------
+   7) MOBIL
+-------------------------- */
 @media (max-width: 760px) {
   .featured-web {
-    --home-web-width: min(66vw, 520px);
-    --home-web-half: min(33vw, 260px);
-    --home-note-width: clamp(120px, 27vw, 150px);
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "screen"
+      "note"
+      "action" !important;
+    justify-items: center !important;
   }
 
   .featured-web-note {
-    left: calc(50% - var(--home-web-half) - var(--home-note-width) - 8px) !important;
-    height: clamp(192px, 41vw, 230px) !important;
-    padding: 18px 11px 13px !important;
-  }
-
-  .featured-web-note h3 {
-    font-size: clamp(15px, 4vw, 19px) !important;
-  }
-
-  .featured-web-note p {
-    font-size: clamp(9.2px, 2.5vw, 10.8px) !important;
-    line-height: 1.32 !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: min(320px, 92vw) !important;
+    min-height: auto !important;
+    height: auto !important;
+    text-align: center !important;
   }
 
   .featured-web-button {
-    display: none !important;
+    justify-items: center !important;
+    width: auto !important;
   }
 
-  .featured-web-mobile-link {
-    display: inline-grid !important;
-    grid-area: action !important;
-    justify-self: end !important;
-    margin-right: calc((100% - var(--home-web-width)) / 2) !important;
+  .websites-grid {
+    grid-template-columns: 1fr !important;
+    width: min(92vw, 860px) !important;
   }
 
   .website-card,
@@ -367,57 +352,30 @@
       "screen"
       "note" !important;
     justify-items: center !important;
-    gap: 18px !important;
   }
 
+  .website-side-info,
+  .website-card:nth-child(even) .website-side-info,
   .website-note,
   .website-card:nth-child(even) .website-note {
-    width: min(360px, 92%) !important;
-    min-height: 0 !important;
+    width: min(320px, 92vw) !important;
+    min-height: auto !important;
     height: auto !important;
-    padding: 22px 18px 18px !important;
     text-align: center !important;
   }
 
-  .website-screen,
-  .website-card:nth-child(even) .website-screen {
-    width: min(100%, 620px) !important;
-    max-width: 620px !important;
-  }
-
-  .website-open-button,
+  .website-card:nth-child(odd) .website-open-button,
   .website-card:nth-child(even) .website-open-button {
     right: 8px !important;
     left: auto !important;
     bottom: 8px !important;
-    transform: none !important;
+    width: 82px !important;
   }
 
+  .website-card:nth-child(odd) .click-arrow-asset,
+  .website-card:nth-child(odd) .click-text-asset,
   .website-card:nth-child(even) .click-arrow-asset,
   .website-card:nth-child(even) .click-text-asset {
     transform: none !important;
-  }
-}
-
-@media (max-width: 520px) {
-  .featured-web {
-    --home-web-width: min(64vw, 360px);
-    --home-web-half: min(32vw, 180px);
-    --home-note-width: 108px;
-  }
-
-  .featured-web-note {
-    left: calc(50% - var(--home-web-half) - var(--home-note-width) - 6px) !important;
-    height: 190px !important;
-    padding: 17px 9px 12px !important;
-  }
-
-  .featured-web-note h3 {
-    font-size: 14px !important;
-  }
-
-  .featured-web-note p {
-    font-size: 8.9px !important;
-    line-height: 1.28 !important;
   }
 }
