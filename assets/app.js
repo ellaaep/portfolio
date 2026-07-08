@@ -1,6 +1,6 @@
 const contentStyles = document.createElement("link");
 contentStyles.rel = "stylesheet";
-contentStyles.href = "assets/content-overrides.css?v=20260708-copy-v2";
+contentStyles.href = "assets/content-overrides.css?v=20260708-copy-v3";
 document.head.appendChild(contentStyles);
 
 const root = document.documentElement;
@@ -44,10 +44,6 @@ const portfolioVideos = [
     src: "assets/media/videos/reels/akcni-reel.mp4",
     poster: "assets/media/posters/akcni-reel.webp",
     format: "portrait",
-    description: "",
-    featuredText: "Akční reel pro",
-    featuredHandle: "@ostravske.akce",
-    featuredUrl: "https://www.instagram.com/ostravske.akce/",
     featured: true,
   },
   {
@@ -58,7 +54,6 @@ const portfolioVideos = [
     src: "assets/media/videos/reels/filler-reel.mp4",
     poster: "assets/media/posters/filler-reel.webp",
     format: "portrait",
-    description: "",
     featured: false,
   },
   {
@@ -69,10 +64,6 @@ const portfolioVideos = [
     src: "assets/media/videos/graphics/outro-2026.mp4",
     poster: "assets/media/posters/outro-2026.webp",
     format: "portrait",
-    description: "",
-    featuredText: "Outro pro",
-    featuredHandle: "@ostravske.akce",
-    featuredUrl: "https://www.instagram.com/ostravske.akce/",
     featured: true,
   },
   {
@@ -83,7 +74,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2026/edit-2026-01.mp4",
     poster: "assets/media/posters/edit-2026-01.webp",
     format: "landscape",
-    description: "",
     featured: false,
   },
   {
@@ -94,10 +84,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2026/edit-2026-02.mp4",
     poster: "assets/media/posters/edit-2026-02.webp",
     format: "square",
-    description: "",
-    featuredText: "Edit pro",
-    featuredHandle: "DIO",
-    featuredUrl: "",
     featured: true,
   },
   {
@@ -108,7 +94,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2025/edit-2025-01.mp4",
     poster: "assets/media/posters/edit-2025-01.webp",
     format: "square",
-    description: "",
     featured: false,
   },
   {
@@ -119,7 +104,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2025/edit-2025-02.mp4",
     poster: "assets/media/posters/edit-2025-02.webp",
     format: "portrait",
-    description: "",
     featured: false,
   },
   {
@@ -130,7 +114,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2025/edit-2025-03.mp4",
     poster: "assets/media/posters/edit-2025-03.webp",
     format: "square",
-    description: "",
     featured: false,
   },
   {
@@ -141,7 +124,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2024/edit-2024-01.mp4",
     poster: "assets/media/posters/edit-2024-01.webp",
     format: "portrait",
-    description: "",
     featured: false,
   },
   {
@@ -152,7 +134,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2024/edit-2024-02.mp4",
     poster: "assets/media/posters/edit-2024-02.webp",
     format: "square",
-    description: "",
     featured: false,
   },
   {
@@ -163,7 +144,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2023/edit-2023-01.mp4",
     poster: "assets/media/posters/edit-2023-01.webp",
     format: "portrait",
-    description: "",
     featured: false,
   },
   {
@@ -174,7 +154,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2023/edit-2023-03.mp4",
     poster: "assets/media/posters/edit-2023-03.webp",
     format: "square",
-    description: "",
     featured: false,
   },
   {
@@ -185,7 +164,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2023/edit-2023-04.mp4",
     poster: "assets/media/posters/edit-2023-04.webp",
     format: "square",
-    description: "",
     featured: false,
   },
   {
@@ -196,7 +174,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2023/edit-2023-05.mp4",
     poster: "assets/media/posters/edit-2023-05.webp",
     format: "square",
-    description: "",
     featured: false,
   },
   {
@@ -207,7 +184,6 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2023/edit-2023-06.mov",
     poster: "assets/media/posters/edit-2023-06.webp",
     format: "square",
-    description: "",
     featured: false,
   },
   {
@@ -218,12 +194,10 @@ const portfolioVideos = [
     src: "assets/media/videos/edits/2022/edit-2022-01.mp4",
     poster: "assets/media/posters/edit-2022-01.webp",
     format: "square",
-    description: "",
     featured: false,
   },
 ];
 
-const videoFeaturedContainer = document.querySelector("[data-video-featured]");
 const videoYearsContainer = document.querySelector("[data-video-years]");
 const videoYearSelect = document.querySelector("[data-video-year-select]");
 const videoModal = document.querySelector("[data-video-modal]");
@@ -233,10 +207,8 @@ const videoModalMedia = document.querySelector("[data-video-modal-media]");
 const videoPlayer = document.querySelector("[data-video-player]");
 let lastFocusedVideoTrigger = null;
 
-const videoMetaText = (video) => video.year ? String(video.year) : "Vybraná práce";
-
-const renderVideoButton = (video, variant = "timeline") => `
-  <button class="motion-video-card motion-video-card-${variant}" type="button" data-video-id="${video.id}" data-format="${video.format}" aria-label="Přehrát ${video.title}">
+const renderVideoButton = (video) => `
+  <button class="motion-video-card motion-video-card-timeline" type="button" data-video-id="${video.id}" data-format="${video.format}" aria-label="Přehrát ${video.title}">
     <span class="motion-poster-wrap" aria-hidden="true">
       <img src="${video.poster}" alt="" loading="lazy">
       <span class="motion-play-icon"></span>
@@ -244,33 +216,16 @@ const renderVideoButton = (video, variant = "timeline") => `
   </button>
 `;
 
-const renderFeaturedVideo = (video) => `
-  <article class="motion-featured-item">
-    ${renderVideoButton(video, "featured")}
-  </article>
-`;
-
-const renderFeaturedVideos = () => {
-  if (!videoFeaturedContainer) return;
-  videoFeaturedContainer.innerHTML = portfolioVideos
-    .filter((video) => video.featured)
-    .slice(0, 3)
-    .map((video) => renderFeaturedVideo(video))
-    .join("");
-};
-
 const renderVideoYearGroups = (activeYear = "2026") => {
   if (!videoYearsContainer) return;
 
-  const edits = portfolioVideos.filter((video) => video.category === "edit");
   const selectedYear = Number(activeYear);
-  const videos = edits.filter((video) => video.year === selectedYear);
+  const videos = portfolioVideos.filter(
+    (video) => video.category === "edit" && video.year === selectedYear,
+  );
 
   videoYearsContainer.innerHTML = `
     <section class="motion-year-group" aria-label="Edity z roku ${selectedYear}">
-      <div class="motion-year-heading">
-        <h4>${selectedYear}</h4>
-      </div>
       <div class="motion-year-grid">
         ${videos.map((video) => renderVideoButton(video)).join("")}
       </div>
@@ -283,7 +238,7 @@ const openVideoModal = (video) => {
 
   lastFocusedVideoTrigger = document.activeElement;
   videoModalTitle.textContent = video.title;
-  videoModalMeta.textContent = videoMetaText(video);
+  videoModalMeta.textContent = video.year ? String(video.year) : "Vybraná práce";
   videoModalMedia.dataset.format = video.format;
   videoPlayer.setAttribute("src", video.src);
   videoPlayer.setAttribute("poster", video.poster);
@@ -305,7 +260,6 @@ const closeVideoModal = () => {
   lastFocusedVideoTrigger?.focus?.();
 };
 
-renderFeaturedVideos();
 renderVideoYearGroups(videoYearSelect?.value || "2026");
 
 videoYearSelect?.addEventListener("change", () => {
