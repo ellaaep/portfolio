@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Vybrané video práce a grafický design v portfoliu Elišky Turkové.">
+    <meta name="description" content="Vybrané video edity a archiv prací podle roku.">
     <title>Video | Eliška Turková</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css?v=20260708-year-center-note">
-    <script src="assets/app.js?v=20260708-year-center-note" defer></script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260708-copy-v2">
+    <script src="assets/app.js?v=20260708-copy-v2" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -44,63 +44,26 @@
       <section class="work-category motion-section" id="video" aria-labelledby="featured-video-title">
         <div class="motion-block">
           <div class="motion-subheading">
-            <h2 id="featured-video-title">Vybrané video práce</h2>
+            <h2 id="featured-video-title">3 vybrané práce</h2>
           </div>
           <div class="motion-featured-grid" data-video-featured></div>
         </div>
 
         <div class="motion-block motion-timeline-block">
           <div class="motion-subheading motion-subheading-filtered">
-            <h3>Další edity podle roku</h3>
-            <div class="motion-filters" aria-label="Filtrovat edity podle roku">
-              <button type="button" data-video-filter="2026" aria-pressed="true">2026</button>
-              <button type="button" data-video-filter="2025" aria-pressed="false">2025</button>
-              <button type="button" data-video-filter="2024" aria-pressed="false">2024</button>
-              <button type="button" data-video-filter="2023" aria-pressed="false">2023</button>
-              <button type="button" data-video-filter="2022" aria-pressed="false">2022</button>
-              <button type="button" data-video-filter="all" aria-pressed="false">Zobrazit více</button>
-            </div>
+            <h3>Edity podle roku</h3>
+            <label class="motion-year-select-wrap">
+              <span class="sr-only">Vyber rok</span>
+              <select class="motion-year-select" data-video-year-select aria-label="Vyber rok editů">
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+              </select>
+            </label>
           </div>
           <div class="motion-year-groups" data-video-years></div>
-        </div>
-      </section>
-
-      <section class="work-category" id="design" hidden>
-        <div class="section-heading">
-          <div>
-            <h2>Grafika a vizuální obsah</h2>
-          </div>
-          <div class="section-actions">
-            <a class="button button-small button-secondary" href="#video">
-              Zpět na videa
-            </a>
-          </div>
-        </div>
-        <div class="media-grid equal-grid">
-          <article class="media-card">
-            <div class="media-placeholder" aria-label="Místo pro náhled grafiky">Náhled připravuju</div>
-            <div class="project-title">
-              <h3>Sociální sítě</h3>
-            </div>
-            <p>Samostatné příspěvky i ucelené sady, které drží styl značky a zůstávají čitelné na první pohled.</p>
-            <div class="card-actions">
-              <a class="button button-small button-secondary" href="contact.html#contact-form">
-                Poptat grafiku
-              </a>
-            </div>
-          </article>
-          <article class="media-card">
-            <div class="media-placeholder" aria-label="Místo pro náhled grafiky">Náhled připravuju</div>
-            <div class="project-title">
-              <h3>Plakáty a promo materiály</h3>
-            </div>
-            <p>Plakáty, bannery a další promo materiály s důrazem na kompozici, hierarchii a informace, které mají být opravdu vidět.</p>
-            <div class="card-actions">
-              <a class="button button-small button-secondary" href="contact.html#contact-form">
-                Poptat grafiku
-              </a>
-            </div>
-          </article>
         </div>
       </section>
     </main>
