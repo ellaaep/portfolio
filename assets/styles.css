@@ -1765,7 +1765,7 @@ h3 {
 
 [data-theme="dark"] .featured-web-note {
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 84%, #f58ac2 8%), color-mix(in srgb, var(--surface) 86%, #9b7cff 12%)),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 84%, #f58ac2 8%), color-mix(in srgb, var(--surface) 86%, #882043 12%)),
     var(--surface);
 }
 
@@ -3471,7 +3471,7 @@ body.video-modal-open {
 
 [data-theme="dark"] .website-note {
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 84%, #f58ac2 8%), color-mix(in srgb, var(--surface) 86%, #9b7cff 12%)),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 84%, #f58ac2 8%), color-mix(in srgb, var(--surface) 86%, #882043 12%)),
     var(--surface);
 }
 
@@ -5233,7 +5233,7 @@ hr {
 }
 
 [data-theme="dark"] .media-arrow-carousel__button:hover {
-  background: color-mix(in srgb, var(--surface-strong) 72%, #9b7cff 20%);
+  background: color-mix(in srgb, var(--surface-strong) 72%, #882043 20%);
 }
 
 .media-arrow-carousel__button:disabled {
@@ -5328,7 +5328,7 @@ hr {
 [data-theme="dark"] .footer-column a:hover,
 [data-theme="dark"] .footer-socials a:hover,
 [data-theme="dark"] .footer-bottom a:hover {
-  color: #9b7cff;
+  color: #882043;
 }
 
 .footer-bottom {
@@ -5923,7 +5923,7 @@ hr {
 }
 
 [data-theme="dark"] .footer-bottom a:hover {
-  color: #9b7cff !important;
+  color: #882043 !important;
 }
 
 @media (max-width: 980px) {
@@ -6160,8 +6160,8 @@ hr {
 
 [data-theme="dark"] .footer-socials a:hover,
 [data-theme="dark"] .footer-socials::after:hover {
-  border-color: #9b7cff !important;
-  background: #9b7cff !important;
+  border-color: #882043 !important;
+  background: #882043 !important;
 }
 
 @media (max-width: 620px) {
@@ -6199,7 +6199,7 @@ hr {
 
 [data-theme="dark"] .bubble-button {
   --bubble-base: #fceae2;
-  --bubble-action: #9b7cff;
+  --bubble-action: #882043;
   --bubble-label: #1d2532;
 }
 
@@ -8132,7 +8132,7 @@ h3 {
 }
 
 [data-theme="dark"] .footer-socials a:hover {
-  color: #9b7cff !important;
+  color: #882043 !important;
 }
 
 .footer-bottom span,
@@ -9022,7 +9022,7 @@ body {
 }
 
 [data-theme="light"] .pricing-table th {
-  color: #8d72ff !important;
+  color: #882043 !important;
 }
 
 .footer-socials a[href^="mailto:"]::before {
@@ -9144,7 +9144,7 @@ body {
 
 /* Pricing first row / table head light-mode purple */
 [data-theme="light"] .pricing-table th {
-  color: #8d72ff !important;
+  color: #882043 !important;
 }
 
 /* Replace the weird arrow/auto symbol with a real email icon */
@@ -9263,7 +9263,7 @@ body {
   color: var(--rose) !important;
 }
 [data-theme="dark"] .pricing-table th {
-  color: #8d72ff !important;
+  color: #882043 !important;
 }
 
 /* Footer mail icon */
@@ -9415,4 +9415,65 @@ body {
   background: currentColor !important;
   -webkit-mask: url("mail-icon.png") center / contain no-repeat !important;
   mask: url("mail-icon.png") center / contain no-repeat !important;
+}
+
+/* === FINAL USER FIX: dark mode purple accents -> red #882043 === */
+[data-theme="dark"] {
+  --portfolio-dark-red: #882043;
+  --dark-red-accent: #882043;
+  --bubble-action: #882043;
+}
+
+/* pricing table header in dark mode */
+[data-theme="dark"] .pricing-table th {
+  color: #882043 !important;
+}
+
+/* all important hover states/buttons in dark mode */
+[data-theme="dark"] a:hover,
+[data-theme="dark"] .text-link:hover,
+[data-theme="dark"] .button:hover,
+[data-theme="dark"] .pill-link:hover,
+[data-theme="dark"] .bubble-button,
+[data-theme="dark"] .bubble-button:hover,
+[data-theme="dark"] .footer-column a:hover,
+[data-theme="dark"] .footer-socials a:hover,
+[data-theme="dark"] .footer-bottom a:hover,
+[data-theme="dark"] .media-arrow-carousel__button:hover,
+[data-theme="dark"] .send-mail-btn:hover {
+  color: #882043 !important;
+  border-color: #882043 !important;
+}
+
+[data-theme="dark"] .footer-socials a:hover,
+[data-theme="dark"] .button:hover,
+[data-theme="dark"] .pill-link:hover,
+[data-theme="dark"] .send-mail-btn:hover {
+  background: #882043 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .bubble-button {
+  --bubble-action: #882043 !important;
+}
+
+[data-theme="dark"] .media-arrow-carousel__button:hover {
+  background: color-mix(in srgb, var(--surface-strong) 72%, #882043 20%) !important;
+}
+
+/* keep GitHub + LinkedIn visible in footer */
+.footer-socials a[href*="github"],
+.footer-socials a[href*="linkedin"] {
+  display: inline-flex !important;
+}
+
+.footer-socials a[href*="github"]::before {
+  content: "⌘" !important;
+}
+
+.footer-socials a[href*="linkedin"]::before {
+  content: "in" !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.05em !important;
 }
