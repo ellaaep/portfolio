@@ -1331,3 +1331,12 @@
     left: -32px !important;
   }
 }
+
+/* === FINAL USER FIX: dark doodles/lines red === */
+[data-theme="dark"] {
+  --note-line-final: #882043 !important;
+}
+[data-theme="dark"] .featured-web-note h3::after,
+[data-theme="dark"] .website-note h2::after {
+  background: #882043 !important;
+}
