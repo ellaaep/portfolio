@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Kontaktní formulář pro portfolio.">
     <title>Kontakt | Eliška Turková</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/styles.css?v=20260709-final-portrait-fix">
     <script src="assets/app.js?v=20260709-final-portrait-fix" defer></script>
   </head>
+
   <body>
     <header class="site-header">
       <div class="header-shell">
         <a class="brand" href="index.html" aria-label="Domů">
           <img class="brand-memoji" src="assets/memoji-about.png" alt="Eliška Turková">
         </a>
+
         <div class="nav-shell">
           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
             <span></span>
             <span></span>
           </button>
+
           <nav class="site-nav" id="site-nav" aria-label="Hlavní navigace">
             <a href="weby.html">Weby</a>
             <a href="work.html">Video</a>
@@ -29,8 +34,9 @@
             <a href="spoluprace.html">Spolupráce</a>
             <a href="about.html">O mně</a>
             <a href="contact.html" aria-current="page">Kontakt</a>
-                      </nav>
+          </nav>
         </div>
+
         <div class="header-actions">
           <button class="theme-toggle" type="button" aria-label="Přepnout barevný režim">
             <span class="theme-thumb" aria-hidden="true"></span>
@@ -42,41 +48,55 @@
     <main>
       <section class="page-cover contact-cover">
         <h1>Pojďme probrat, co má vzniknout</h1>
-        <p class="lead">Nemusíš mít hotové zadání. Napiš mi, co řešíš, co už máš připravené a přibližný termín. Ozvu se s návrhem dalšího postupu.</p>
+        <p class="lead">
+          Nemusíš mít hotové zadání. Napiš mi, co řešíš, co už máš připravené a přibližný termín. Ozvu se s návrhem dalšího postupu.
+        </p>
       </section>
 
       <section class="contact-layout">
-<form class="contact-form mail-window" id="contact-form" action="https://formsubmit.co/turkova.profi@gmail.com" method="POST">          <input type="hidden" name="_subject" value="Nová zpráva z portfolia">
-          <input type="hidden" name="_template" value="table">
+        <form class="contact-form mail-window" id="contact-form" action="https://formspree.io/f/meebbnjw" method="POST">
+          <input type="hidden" name="_subject" value="Nová zpráva z portfolia">
+          <input type="text" name="_gotcha" style="display: none;" tabindex="-1" autocomplete="off">
+
           <div class="mail-toolbar">
             <div class="window-bar">
               <span></span>
               <span></span>
               <span></span>
             </div>
+
             <span class="mail-title">Nová zpráva</span>
+
             <button class="send-mail-btn" type="submit" aria-label="Odeslat poptávku">↑</button>
           </div>
+
           <label>
             <span>Jméno</span>
             <input type="text" name="name" autocomplete="name" placeholder="Tvoje jméno" required>
           </label>
+
           <label>
             <span>E-mail</span>
             <input type="email" name="email" autocomplete="email" placeholder="tvuj@email.cz" required>
           </label>
+
           <label>
             <span>Zpráva</span>
             <textarea name="message" rows="7" placeholder="Co chceš vytvořit, pro koho to je a kdy by to mělo být hotové?" required></textarea>
           </label>
+
           <button class="button" type="submit">Odeslat poptávku</button>
         </form>
+
         <aside class="contact-links">
           <h2>Kontakt a odkazy</h2>
-                    <a href="mailto:turkova.profi@gmail.com">turkova.profi@gmail.com</a>
+
+          <a href="mailto:turkova.profi@gmail.com">turkova.profi@gmail.com</a>
           <a href="https://www.instagram.com/turkovq/" target="_blank" rel="noreferrer">Instagram</a>
-          <a href="https://www.tiktok.com/@ellaaep" target="_blank" rel="noreferrer">TikTok</a>
-          <p>Do zprávy můžeš přidat i odkaz na současný web, inspiraci nebo ukázky stylu, který se ti líbí. Čím víc kontextu mám, tím přesněji můžu navrhnout řešení.</p>
+
+          <p>
+            Do zprávy můžeš přidat i odkaz na současný web, inspiraci nebo ukázky stylu, který se ti líbí. Čím víc kontextu mám, tím přesněji můžu navrhnout řešení.
+          </p>
         </aside>
       </section>
     </main>
