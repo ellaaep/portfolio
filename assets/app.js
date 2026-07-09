@@ -225,6 +225,7 @@ const addMobileFeaturedLink = () => {
 const enhanceSiteFooter = () => {
   const footer = document.querySelector(".site-footer");
   if (!footer || footer.querySelector(".footer-shell")) return;
+
   document.body.id ||= "top";
 
   footer.innerHTML = `
@@ -233,6 +234,7 @@ const enhanceSiteFooter = () => {
         <strong>Eliška Turková</strong>
         <span>Web development, UI/UX design, video editing a vizuální obsah.</span>
       </div>
+
       <nav class="footer-column" aria-label="Odkazy ve footeru">
         <strong>Portfolio</strong>
         <a href="weby.html">Weby</a>
@@ -240,13 +242,28 @@ const enhanceSiteFooter = () => {
         <a href="pricing.html">Ceník</a>
         <a href="about.html">O mně</a>
       </nav>
-    <div class="footer-socials">
-  <strong>Kontakt a sítě</strong>
-  <a href="mailto:turkova.profi@gmail.com">turkova.profi@gmail.com</a>
-  <a href="https://www.instagram.com/turkovq/" target="_blank" rel="noreferrer">Instagram</a>
-  <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
-  <a href="https://www.linkedin.com/in/eli%C5%A1ka-turkov%C3%A1-399465413/" target="_blank" rel="noreferrer">LinkedIn</a>
-</div>
+
+      <div class="footer-socials">
+        <strong>Kontakt a sítě</strong>
+
+        <a href="mailto:turkova.profi@gmail.com">turkova.profi@gmail.com</a>
+
+        <a href="https://www.instagram.com/turkovq/" target="_blank" rel="noreferrer">
+          Instagram
+        </a>
+
+        <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+
+        <a class="footer-linkedin" href="https://www.linkedin.com/in/eli%C5%A1ka-turkov%C3%A1-399465413/" target="_blank" rel="noreferrer" aria-label="LinkedIn profil Elišky Turkové">
+          <svg class="footer-linkedin-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.35 8h4.3v14H.35V8zM8 8h4.12v1.92h.06c.57-1.08 1.97-2.22 4.05-2.22 4.34 0 5.14 2.86 5.14 6.57V22h-4.3v-6.85c0-1.63-.03-3.73-2.27-3.73-2.27 0-2.62 1.77-2.62 3.6V22H8V8z"></path>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+
       <div class="footer-bottom">
         <span>© ${new Date().getFullYear()} Eliška Turková</span>
         <a href="#top">Zpět nahoru ↑</a>
