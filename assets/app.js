@@ -245,7 +245,7 @@ const enhanceSiteFooter = () => {
   <a href="mailto:turkova.profi@gmail.com">turkova.profi@gmail.com</a>
   <a href="https://www.instagram.com/turkovq/" target="_blank" rel="noreferrer">Instagram</a>
   <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
-  <a href="https://www.linkedin.com/in/eli%C5%A1ka-turkov%C3%A1-399465413/" target="_blank" rel="noreferrer">LinkedIn</a>
+  <a href="https://www.linkedin.com/in/eli%C5%A1ka-turkov%C3%A1-399465413/">LinkedIn</a>
 </div>
       <div class="footer-bottom">
         <span>© ${new Date().getFullYear()} Eliška Turková</span>
