@@ -54,10 +54,7 @@
       </section>
 
       <section class="contact-layout">
-        <form class="contact-form mail-window" id="contact-form" action="https://formspree.io/f/meebbnjw" method="POST">
-          <input type="hidden" name="_subject" value="Nová zpráva z portfolia">
-          <input type="text" name="_gotcha" style="display: none;" tabindex="-1" autocomplete="off">
-
+        <form class="contact-form mail-window" id="contact-form">
           <div class="mail-toolbar">
             <div class="window-bar">
               <span></span>
@@ -93,9 +90,12 @@
 
           <a href="mailto:turkova.profi@gmail.com">turkova.profi@gmail.com</a>
           <a href="https://www.instagram.com/turkovq/" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/eli%C5%A1ka-turkov%C3%A1-399465413/" target="_blank" rel="noreferrer">LinkedIn</a>
 
           <p>
-            Do zprávy můžeš přidat i odkaz na současný web, inspiraci nebo ukázky stylu, který se ti líbí. Čím víc kontextu mám, tím přesněji můžu navrhnout řešení.
+            Do zprávy můžeš přidat i odkaz na současný web, inspiraci nebo ukázky stylu, který se ti líbí.
+            Čím víc kontextu mám, tím přesněji můžu navrhnout řešení.
           </p>
         </aside>
       </section>
@@ -105,5 +105,33 @@
       <span>Eliška Turková</span>
       <span>weby / video / grafika</span>
     </footer>
+
+    <script>
+      const contactForm = document.querySelector("#contact-form");
+
+      contactForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        const name = String(formData.get("name") || "").trim();
+        const email = String(formData.get("email") || "").trim();
+        const message = String(formData.get("message") || "").trim();
+
+        const subject = `Poptávka z portfolia - ${name || "nový kontakt"}`;
+
+        const body = [
+          `Jméno: ${name}`,
+          `E-mail: ${email}`,
+          "",
+          "Zpráva:",
+          message
+        ].join("\n");
+
+        const mailtoLink = `mailto:turkova.profi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoLink;
+      });
+    </script>
   </body>
 </html>
