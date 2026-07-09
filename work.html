@@ -7,9 +7,9 @@
     <title>Video | Eliška Turková</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css?v=20260708-single-v1">
-    <script src="assets/app.js?v=20260708-single-v1" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Indie+Flower&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css?v=20260709-final-portrait-fix">
+    <script src="assets/app.js?v=20260709-final-portrait-fix" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -29,8 +29,7 @@
             <a href="spoluprace.html">Spolupráce</a>
             <a href="about.html">O mně</a>
             <a href="contact.html">Kontakt</a>
-            <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
-          </nav>
+                      </nav>
         </div>
         <div class="header-actions">
           <button class="theme-toggle" type="button" aria-label="Přepnout barevný režim">
@@ -46,29 +45,7 @@
           <div class="motion-subheading">
             <h2 id="featured-video-title">3 vybrané práce</h2>
           </div>
-          <div class="motion-featured-grid" aria-label="Připravované vybrané videopráce">
-            <article class="motion-featured-item featured-placeholder-card">
-              <div class="featured-placeholder-visual" aria-hidden="true">01</div>
-              <div class="featured-placeholder-copy">
-                <h3>Short-form reel</h3>
-                <p>Dynamický střih krátkého videa s důrazem na rytmus, hudbu a rychlé tempo.</p>
-              </div>
-            </article>
-            <article class="motion-featured-item featured-placeholder-card">
-              <div class="featured-placeholder-visual" aria-hidden="true">02</div>
-              <div class="featured-placeholder-copy">
-                <h3>Motion design</h3>
-                <p>Krátká grafická animace nebo outro vytvořené pro konkrétní značku či projekt.</p>
-              </div>
-            </article>
-            <article class="motion-featured-item featured-placeholder-card">
-              <div class="featured-placeholder-visual" aria-hidden="true">03</div>
-              <div class="featured-placeholder-copy">
-                <h3>Edit na míru</h3>
-                <p>Vybraná ukázka práce, ve které se propojí obraz, hudba a příběh do jednoho celku.</p>
-              </div>
-            </article>
-          </div>
+          <div class="motion-featured-grid" data-featured-videos aria-label="Vybrané videopráce"></div>
         </div>
 
         <div class="motion-block motion-timeline-block">
@@ -97,6 +74,7 @@
         <div class="video-modal-copy">
           <span data-video-modal-meta></span>
           <h2 id="video-modal-title" data-video-modal-title>Ukázka</h2>
+          <p data-video-modal-description></p>
         </div>
         <div class="video-modal-media" data-video-modal-media>
           <video controls preload="none" playsinline data-video-player></video>

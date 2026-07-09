@@ -7,9 +7,10 @@
     <title>Portfolio | Eliška Turková</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css?v=20260708-single-v1">
-    <script src="assets/app.js?v=20260708-single-v1" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Indie+Flower&family=Inter:wght@400;500;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css?v=20260709-final-portrait-fix">
+    <link rel="stylesheet" href="assets/final-notes.css?v=20260708-notes-v1">
+    <script src="assets/app.js?v=20260709-final-portrait-fix" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -29,8 +30,7 @@
             <a href="spoluprace.html">Spolupráce</a>
             <a href="about.html">O mně</a>
             <a href="contact.html">Kontakt</a>
-            <a href="https://github.com/ellaaep" target="_blank" rel="noreferrer">GitHub</a>
-          </nav>
+                      </nav>
         </div>
         <div class="header-actions">
           <button class="theme-toggle" type="button" aria-label="Přepnout barevný režim">
@@ -61,6 +61,7 @@
 
       <section class="showcase-grid" aria-label="Vybraná práce">
         <article class="featured-web">
+          <a class="featured-web-cta-button" href="weby.html">Zobrazit weby</a>
           <a class="featured-web-screen" href="weby.html" aria-label="Prohlédnout moje weby">
             <span class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></span>
             <span class="featured-web-viewport">
@@ -68,19 +69,14 @@
             </span>
           </a>
           <div class="featured-web-note">
+            <span class="sticky-tape" aria-hidden="true"></span>
             <h3>Květinářství</h3>
             <p>Školní projekt praktického webu, který slouží jako hlavní spojení mezi zákazníkem a květinářstvím. Přehledně představuje nabídku, služby a důležité kontaktní informace.</p>
+            <span class="note-doodle note-doodle-flower theme-asset" aria-hidden="true">
+              <img class="theme-asset-light" src="assets/custom-doodles/light-mode-pink-flower-transparent.png" alt="">
+              <img class="theme-asset-dark" src="assets/custom-doodles/dark-mode-purple-flower-transparent.png" alt="">
+            </span>
           </div>
-          <a class="featured-web-button click-arrow-link" href="weby.html" aria-label="Zobrazit další weby">
-            <span class="click-arrow-asset theme-asset" aria-hidden="true">
-              <img class="theme-asset-light" src="assets/handdrawn/light/sipka-02-svetly-rezim.png" alt="">
-              <img class="theme-asset-dark" src="assets/handdrawn/dark/sipka-01-tmavy-rezim.png" alt="">
-            </span>
-            <span class="click-text-asset theme-asset" aria-hidden="true">
-              <img class="theme-asset-light" src="assets/handdrawn/light/text-click-me-svetly-rezim.png" alt="">
-              <img class="theme-asset-dark" src="assets/handdrawn/dark/text-click-me-tmavy-rezim.png" alt="">
-            </span>
-          </a>
         </article>
 
         <div class="home-video-strip">
@@ -88,26 +84,7 @@
             <h2>Poslední 3 edity</h2>
             <a class="text-link" href="work.html#video">Zobrazit více</a>
           </div>
-          <div class="home-video-grid">
-            <a class="video-showcase-card" href="work.html#video" aria-label="Otevřít vybrané video">
-              <span class="video-showcase-poster">
-                <img src="assets/media/posters/akcni-reel.webp" alt="Náhled vybraného videa" loading="lazy">
-                <span class="motion-play-icon" aria-hidden="true"></span>
-              </span>
-            </a>
-            <a class="video-showcase-card" href="work.html#video" aria-label="Otevřít vybrané video">
-              <span class="video-showcase-poster">
-                <img src="assets/media/posters/outro-2026.webp" alt="Náhled vybraného videa" loading="lazy">
-                <span class="motion-play-icon" aria-hidden="true"></span>
-              </span>
-            </a>
-            <a class="video-showcase-card" href="work.html#video" aria-label="Otevřít vybrané video">
-              <span class="video-showcase-poster">
-                <img src="assets/media/posters/edit-2026-02.webp" alt="Náhled vybraného videa" loading="lazy">
-                <span class="motion-play-icon" aria-hidden="true"></span>
-              </span>
-            </a>
-          </div>
+          <div class="home-video-grid" data-home-videos></div>
         </div>
       </section>
 
@@ -147,7 +124,6 @@
               <div class="app"><span class="app-icon"><img src="assets/logos/skills/php.svg" alt="" aria-hidden="true" class="logo-wide"></span><p>PHP</p></div>
               <div class="app"><span class="app-icon"><img src="assets/logos/skills/mysql.svg" alt="" aria-hidden="true" class="logo-wide"></span><p>MySQL</p></div>
               <div class="app"><span class="app-icon"><img src="assets/logos/skills/python.svg" alt="" aria-hidden="true"></span><p>Python</p></div>
-              <div class="app"><span class="app-icon logo-github-box"><img src="assets/logos/skills/github.svg" alt="" aria-hidden="true" class="logo-github"></span><p>GitHub</p></div>
               <div class="app"><span class="app-icon"><img src="assets/logos/skills/git.svg" alt="" aria-hidden="true"></span><p>Git</p></div>
               <div class="app"><span class="app-icon"><img src="assets/logos/skills/vscode.webp" alt="" aria-hidden="true" class="logo-real"></span><p>VS Code</p></div>
             </div>
@@ -205,6 +181,21 @@
         <a class="button button-small" href="contact.html">Napiš mi</a>
       </section>
     </main>
+
+    <div class="video-modal" data-video-modal hidden role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+      <div class="video-modal-backdrop" data-video-close></div>
+      <div class="video-modal-panel">
+        <button class="video-modal-close" type="button" data-video-close aria-label="Zavřít video">×</button>
+        <div class="video-modal-copy">
+          <span data-video-modal-meta></span>
+          <h2 id="video-modal-title" data-video-modal-title>Ukázka</h2>
+          <p data-video-modal-description></p>
+        </div>
+        <div class="video-modal-media" data-video-modal-media>
+          <video controls preload="none" playsinline data-video-player></video>
+        </div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <span>Eliška Turková</span>
