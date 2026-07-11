@@ -9477,7 +9477,8 @@ body {
   font-weight: 900 !important;
   letter-spacing: -0.05em !important;
 }
-/* LinkedIn footer icon fix */
+
+/* === FINAL FOOTER FIX: no red boxes, clean LinkedIn logo === */
 .footer-socials a[href*="linkedin"]::before,
 .footer-socials a.footer-linkedin::before {
   content: none !important;
@@ -9503,8 +9504,28 @@ body {
   fill: currentColor !important;
 }
 
-/* kdyby staré CSS vytvářelo LinkedIn přes ::after */
 .footer-socials::after {
   display: none !important;
   content: none !important;
+}
+
+.footer-socials a[href^="mailto"] {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+[data-theme="dark"] .footer-socials a:hover,
+[data-theme="dark"] .footer-socials a[href^="mailto"]:hover,
+[data-theme="dark"] .footer-socials a.footer-linkedin:hover,
+[data-theme="dark"] .footer-column a:hover,
+[data-theme="dark"] .footer-bottom a:hover {
+  color: #882043 !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+[data-theme="dark"] .footer-socials a:hover svg,
+[data-theme="dark"] .footer-socials a:hover img {
+  color: #882043 !important;
+  fill: #882043 !important;
 }
